@@ -57,7 +57,7 @@ public class Mainf extends javax.swing.JFrame {
              //connection=DriverManager.getConnection("jdbc:mysql://db4free.net:3306/tony_cloth","tonysaha","14193169");
              connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/tony_cloth","root","");
              st = connection.createStatement();
-             //JOptionPane.showMessageDialog(null, "Connection ok");
+             JOptionPane.showMessageDialog(null, "Connection ok");
          
 	}catch (Exception e) {
 		JOptionPane.showMessageDialog(null, "Connection not ok Check Again");
@@ -1122,6 +1122,8 @@ public class Mainf extends javax.swing.JFrame {
         ImageIcon II = new ImageIcon(getClass().getResource("/button/button_pressed.png"));
         jLabel11.setIcon(II);
         
+       mainf_clear();
+        
         //............insert.........
         m_component();
        // String sql="INSERT INTO master(ProductId,Catagory,ProductName,Purch_rate,Sale_rate,qty,Date,Barcode)"+"values"+"('"+pid+"','"+ctg+"','"+pname+"','"+prate+"','"+srate+"''"+qty+"','"+bcode+"')";
@@ -1409,6 +1411,20 @@ public class Mainf extends javax.swing.JFrame {
     ctg=(String) jComboBox1.getSelectedItem();
     
     }
+    
+    
+    public void mainf_clear(){
+        
+        jTextField1.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField2.setText("");
+        jTextField7.setText("");
+        jDateChooser1.setDateFormatString("");
+        jComboBox1.setSelectedItem("0");
+    }
+    
       public void table1(){
        
        String Sql="Select *from master";
