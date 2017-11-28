@@ -1122,7 +1122,7 @@ public class Mainf extends javax.swing.JFrame {
         ImageIcon II = new ImageIcon(getClass().getResource("/button/button_pressed.png"));
         jLabel11.setIcon(II);
         
-       mainf_clear();
+       
         
         //............insert.........
         m_component();
@@ -1135,6 +1135,7 @@ public class Mainf extends javax.swing.JFrame {
             st.executeUpdate(sql);
             st.executeUpdate(sql2);
             JOptionPane.showMessageDialog(null, "Added Sucessfull");
+            mainf_clear();
         } catch (Exception e) {
             //System.out.println(e);
             JOptionPane.showMessageDialog(null, "NotSucessfull ");
@@ -1422,7 +1423,7 @@ public class Mainf extends javax.swing.JFrame {
         jTextField2.setText("");
         jTextField7.setText("");
         jDateChooser1.setDateFormatString("");
-        jComboBox1.setSelectedItem("0");
+        jComboBox1.setSelectedIndex(0);
     }
     
       public void table1(){
