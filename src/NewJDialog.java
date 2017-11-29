@@ -43,9 +43,9 @@ public class NewJDialog extends javax.swing.JDialog {
 
         jPanel1.setName("Quantity & Discount"); // NOI18N
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("Quantity");
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("Discount");
 
         jTextField1.setText("1");
         jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -57,11 +57,16 @@ public class NewJDialog extends javax.swing.JDialog {
             }
         });
 
-        jTextField2.setText("jTextField2");
+        jTextField2.setText("0.0");
 
-        jButton1.setText("jButton1");
+        jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Cancle");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -83,7 +88,7 @@ public class NewJDialog extends javax.swing.JDialog {
                     .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(193, Short.MAX_VALUE)
+                .addContainerGap(227, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
@@ -133,12 +138,21 @@ public class NewJDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         
         jTextField1.selectAll();
+        
     }//GEN-LAST:event_jTextField1FocusGained
 
     private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jTextField1FocusLost
+String dquantity;
+String ddiscount;
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        dquantity=jTextField1.getText();
+        ddiscount=jTextField2.getText();
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
