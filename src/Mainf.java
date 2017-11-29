@@ -1198,6 +1198,26 @@ public class Mainf extends javax.swing.JFrame {
     private void jLabel12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MousePressed
         ImageIcon II = new ImageIcon(getClass().getResource("/button/delet_pressed.png"));
         jLabel12.setIcon(II);
+        
+        int w = JOptionPane.showConfirmDialog(null,"Do you really want to delete..","Warnning!!!",JOptionPane.YES_NO_OPTION);
+        if(w==0){        
+        String sqldl="delete from master where ProductId='"+jTextField1.getText()+"'";
+        //String sqldl2="delete from barcode where(Barcode,Sale_rate,ProductId)"+"VALUES"+"('"+bcode+"','"+srate+"','"+pid+"')";
+        
+        try {
+            st.executeUpdate(sqldl);
+            //st.executeUpdate(sqldl2);
+            JOptionPane.showMessageDialog(null, "Delete Sucessfull");
+        } catch (SQLException ex) {
+            Logger.getLogger(Mainf.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Not Sucessfull");
+        }
+        
+
+        
+        table1();
+        mainf_clear();
+        }
     }//GEN-LAST:event_jLabel12MousePressed
 
     private void jLabel12MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseReleased
@@ -1412,6 +1432,7 @@ public class Mainf extends javax.swing.JFrame {
     ctg=(String) jComboBox1.getSelectedItem();
     
     }
+    
     
     
     public void mainf_clear(){
