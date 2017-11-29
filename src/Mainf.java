@@ -1178,7 +1178,7 @@ public class Mainf extends javax.swing.JFrame {
         String sqlup = "update master set Catagory='"+jComboBox1.getSelectedItem()+"',productName='"+jTextField3.getText()+"',Purch_rate='"+jTextField4.getText()+"',Sale_rate='"+jTextField5.getText()+"',qty='"+jTextField7.getText()+"',Barcode='"+jTextField2.getText()+"' where ProductId='"+jTextField1.getText()+"'";
         try {
             st.executeUpdate(sqlup);
-            JOptionPane.showMessageDialog(null,"Updated...");
+            JOptionPane.showMessageDialog(null,"Updated s...");
         } catch (SQLException ex) {
             Logger.getLogger(Mainf.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null,"Not Updated...");
