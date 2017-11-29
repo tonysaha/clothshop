@@ -787,13 +787,13 @@
                                               </Group>
                                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jTextField23" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="jTextField21" pref="171" max="32767" attributes="0"/>
-                                                  <Component id="jTextField22" max="32767" attributes="0"/>
-                                                  <Component id="jTextField25" alignment="0" pref="171" max="32767" attributes="0"/>
-                                                  <Component id="jTextField24" max="32767" attributes="0"/>
-                                                  <Component id="jTextField20" max="32767" attributes="0"/>
-                                                  <Component id="jComboBox2" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="sbuyprice_TF" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="spname_TF" pref="171" max="32767" attributes="0"/>
+                                                  <Component id="ssprice_TF" max="32767" attributes="0"/>
+                                                  <Component id="sdis_TF" alignment="0" pref="171" max="32767" attributes="0"/>
+                                                  <Component id="sqty_TF" max="32767" attributes="0"/>
+                                                  <Component id="spid_TF" max="32767" attributes="0"/>
+                                                  <Component id="scat_CB" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
@@ -811,37 +811,37 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel28" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                          <Component id="jTextField20" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                          <Component id="spid_TF" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel29" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                          <Component id="jTextField21" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                          <Component id="spname_TF" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel30" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                          <Component id="jTextField22" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                          <Component id="ssprice_TF" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jTextField23" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                          <Component id="sbuyprice_TF" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                           <Component id="jLabel31" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel32" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                          <Component id="jTextField24" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                          <Component id="sqty_TF" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel33" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                          <Component id="jTextField25" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                          <Component id="sdis_TF" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel34" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                          <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="scat_CB" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jTextField26" min="-2" pref="28" max="-2" attributes="0"/>
@@ -856,60 +856,48 @@
                                 <Property name="text" type="java.lang.String" value="Product_id"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField20">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField20"/>
-                              </Properties>
+                            <Component class="javax.swing.JTextField" name="spid_TF">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel29">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="P_Name"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField21">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField20"/>
-                              </Properties>
+                            <Component class="javax.swing.JTextField" name="spname_TF">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel30">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Sales_Price"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField22">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField20"/>
-                              </Properties>
+                            <Component class="javax.swing.JTextField" name="ssprice_TF">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel31">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Buy_Price"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField23">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField20"/>
-                              </Properties>
+                            <Component class="javax.swing.JTextField" name="sbuyprice_TF">
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sbuyprice_TFActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel32">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Quantity"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField24">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField20"/>
-                              </Properties>
+                            <Component class="javax.swing.JTextField" name="sqty_TF">
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sqty_TFActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel33">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Discount"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField25">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField20"/>
-                              </Properties>
+                            <Component class="javax.swing.JTextField" name="sdis_TF">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel34">
                               <Properties>
@@ -921,7 +909,7 @@
                                 <Property name="text" type="java.lang.String" value="jTextField20"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox2">
+                            <Component class="javax.swing.JComboBox" name="scat_CB">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
@@ -1045,10 +1033,10 @@
                             </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="4" rowCount="0">
-                                <Column editable="false" title="Title 1" type="java.lang.Object"/>
-                                <Column editable="false" title="Title 2" type="java.lang.Object"/>
-                                <Column editable="false" title="Title 3" type="java.lang.Object"/>
-                                <Column editable="false" title="Title 4" type="java.lang.Object"/>
+                                <Column editable="false" title="Product Name" type="java.lang.Object"/>
+                                <Column editable="false" title="Price" type="java.lang.Object"/>
+                                <Column editable="false" title="Quantity" type="java.lang.Object"/>
+                                <Column editable="false" title="Toatal Price" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

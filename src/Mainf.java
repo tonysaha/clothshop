@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -117,20 +118,20 @@ public class Mainf extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
-        jTextField20 = new javax.swing.JTextField();
+        spid_TF = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        jTextField21 = new javax.swing.JTextField();
+        spname_TF = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        jTextField22 = new javax.swing.JTextField();
+        ssprice_TF = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
-        jTextField23 = new javax.swing.JTextField();
+        sbuyprice_TF = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
-        jTextField24 = new javax.swing.JTextField();
+        sqty_TF = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
-        jTextField25 = new javax.swing.JTextField();
+        sdis_TF = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         jTextField26 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        scat_CB = new javax.swing.JComboBox<>();
         jPanel15 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -539,33 +540,33 @@ public class Mainf extends javax.swing.JFrame {
 
         jLabel28.setText("Product_id");
 
-        jTextField20.setText("jTextField20");
-
         jLabel29.setText("P_Name");
-
-        jTextField21.setText("jTextField20");
 
         jLabel30.setText("Sales_Price");
 
-        jTextField22.setText("jTextField20");
-
         jLabel31.setText("Buy_Price");
 
-        jTextField23.setText("jTextField20");
+        sbuyprice_TF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sbuyprice_TFActionPerformed(evt);
+            }
+        });
 
         jLabel32.setText("Quantity");
 
-        jTextField24.setText("jTextField20");
+        sqty_TF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sqty_TFActionPerformed(evt);
+            }
+        });
 
         jLabel33.setText("Discount");
-
-        jTextField25.setText("jTextField20");
 
         jLabel34.setText("Catagory");
 
         jTextField26.setText("jTextField20");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        scat_CB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -585,13 +586,13 @@ public class Mainf extends javax.swing.JFrame {
                             .addComponent(jLabel29, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(20, 20, 20)
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField23, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField21, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                            .addComponent(jTextField22)
-                            .addComponent(jTextField25, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                            .addComponent(jTextField24)
-                            .addComponent(jTextField20)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(sbuyprice_TF, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(spname_TF, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                            .addComponent(ssprice_TF)
+                            .addComponent(sdis_TF, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                            .addComponent(sqty_TF)
+                            .addComponent(spid_TF)
+                            .addComponent(scat_CB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jTextField26, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)))
@@ -603,31 +604,31 @@ public class Mainf extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spid_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spname_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ssprice_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sbuyprice_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sqty_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sdis_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scat_CB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(77, Short.MAX_VALUE))
@@ -706,7 +707,7 @@ public class Mainf extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Product Name", "Price", "Quantity", "Toatal Price"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1316,8 +1317,24 @@ public class Mainf extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        try{
       NewJDialog jd=new NewJDialog(this, rootPaneCheckingEnabled);
       jd.setVisible(true);
+      
+      List<String> list=new ArrayList<String>();
+      DefaultTableModel model=(DefaultTableModel) jTable2.getModel();
+      list.add(spname_TF.getText());
+      list.add(ssprice_TF.getText());
+      list.add(jd.dquantity);
+      double eachItem_Tprice=(Double.valueOf(ssprice_TF.getText()))*(Double.valueOf(jd.dquantity));
+      list.add(String.valueOf(eachItem_Tprice));
+      
+      model.addRow(list.toArray());
+      
+        }
+        catch(Exception e){
+        
+        }
         
        
         //qt.setEnabled(true);
@@ -1363,12 +1380,12 @@ public class Mainf extends javax.swing.JFrame {
             while(rs.next()){
                 
            
-                jTextField20.setText(rs.getString(1));
-                jTextField21.setText(rs.getString(3));
-                jTextField22.setText(rs.getString(5));
-                jTextField23.setText(rs.getString(4));
-                jTextField24.setText(rs.getString(6));
-                jComboBox2.setSelectedItem(rs.getString(2));
+                spid_TF.setText(rs.getString(1));
+                spname_TF.setText(rs.getString(3));
+                ssprice_TF.setText(rs.getString(5));
+                sbuyprice_TF.setText(rs.getString(4));
+                sqty_TF.setText(rs.getString(6));
+                scat_CB.setSelectedItem(rs.getString(2));
                 
             }   
         } catch (SQLException ex) {
@@ -1391,6 +1408,14 @@ public class Mainf extends javax.swing.JFrame {
         //jTextField6.setText(model.getValueAt(selectRowindex, 4).toString());
         
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void sbuyprice_TFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sbuyprice_TFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sbuyprice_TFActionPerformed
+
+    private void sqty_TFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sqty_TFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sqty_TFActionPerformed
     
     /**
      * @param args the command line arguments
@@ -1508,7 +1533,6 @@ public class Mainf extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
@@ -1584,12 +1608,6 @@ public class Mainf extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
     private javax.swing.JTextField jTextField26;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -1598,5 +1616,12 @@ public class Mainf extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField sbuyprice_TF;
+    private javax.swing.JComboBox<String> scat_CB;
+    private javax.swing.JTextField sdis_TF;
+    private javax.swing.JTextField spid_TF;
+    private javax.swing.JTextField spname_TF;
+    private javax.swing.JTextField sqty_TF;
+    private javax.swing.JTextField ssprice_TF;
     // End of variables declaration//GEN-END:variables
 }
