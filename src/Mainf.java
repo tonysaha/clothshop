@@ -1174,9 +1174,7 @@ public class Mainf extends javax.swing.JFrame {
       ImageIcon II = new ImageIcon(getClass().getResource("/button/update_pressed.png"));
         jLabel13.setIcon(II);
         
-        String sqlup = "update master set ProductId='"+jTextField1.getText()+"',Catagory='"+jComboBox1.getSelectedItem()+"',"
-                + "productName='"+jTextField3.getText()+"',Purch_rate='"+jTextField4.getText()+"',"
-                + "Sale_rate='"+jTextField5.getText()+"', date='"+jDateChooser1.getDateFormatString()+"',qty='"+jTextField7.getText()+"',Barcode='"+jTextField2.getText()+"'";
+        String sqlup = "update master set Catagory='"+jComboBox1.getSelectedItem()+"',productName='"+jTextField3.getText()+"',Purch_rate='"+jTextField4.getText()+"',Sale_rate='"+jTextField5.getText()+"',qty='"+jTextField7.getText()+"',Barcode='"+jTextField2.getText()+"' where ProductId='"+jTextField1.getText()+"'";
         try {
             st.executeUpdate(sqlup);
             JOptionPane.showMessageDialog(null,"Updated...");
