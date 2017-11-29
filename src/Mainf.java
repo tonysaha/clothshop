@@ -1173,6 +1173,19 @@ public class Mainf extends javax.swing.JFrame {
     private void jLabel13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MousePressed
       ImageIcon II = new ImageIcon(getClass().getResource("/button/update_pressed.png"));
         jLabel13.setIcon(II);
+        
+        String sqlup = "update master set ProductId='"+jTextField1.getText()+"',Catagory='"+jComboBox1.getSelectedItem()+"',"
+                + "productName='"+jTextField3.getText()+"',Purch_rate='"+jTextField4.getText()+"',"
+                + "Sale_rate='"+jTextField5.getText()+"', date='"+jDateChooser1.getDateFormatString()+"',qty='"+jTextField7.getText()+"',Barcode='"+jTextField2.getText()+"'";
+        try {
+            st.executeUpdate(sqlup);
+            JOptionPane.showMessageDialog(null,"Updated...");
+        } catch (SQLException ex) {
+            Logger.getLogger(Mainf.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,"Not Updated...");
+        }
+        table1();
+        mainf_clear();
     }//GEN-LAST:event_jLabel13MousePressed
 
     private void jLabel13MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseReleased
