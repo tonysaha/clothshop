@@ -1,9 +1,3 @@
-
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JDialog;
-import javax.swing.table.DefaultTableModel;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -19,7 +13,6 @@ public class NewJDialog extends javax.swing.JDialog {
     /**
      * Creates new form NewJDialog
      */
-    
     public NewJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -38,7 +31,7 @@ public class NewJDialog extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        dquantity_TF = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -50,40 +43,25 @@ public class NewJDialog extends javax.swing.JDialog {
 
         jPanel1.setName("Quantity & Discount"); // NOI18N
 
-        jLabel1.setText("Quantaty");
+        jLabel1.setText("jLabel1");
 
-        jLabel2.setText("Discount");
+        jLabel2.setText("jLabel2");
 
-        dquantity_TF.setText("1");
-        dquantity_TF.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextField1.setText("1");
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                dquantity_TFFocusGained(evt);
+                jTextField1FocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                dquantity_TFFocusLost(evt);
-            }
-        });
-        dquantity_TF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dquantity_TFActionPerformed(evt);
+                jTextField1FocusLost(evt);
             }
         });
 
-        jTextField2.setText("0.0");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
+        jTextField2.setText("jTextField2");
 
-        jButton1.setText("Ok");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jButton1.setText("jButton1");
 
-        jButton2.setText("Cancle");
+        jButton2.setText("jButton2");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -96,26 +74,27 @@ public class NewJDialog extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(dquantity_TF)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField1)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(193, Short.MAX_VALUE)
+                .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addGap(59, 59, 59))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(79, 79, 79)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(dquantity_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -150,43 +129,16 @@ public class NewJDialog extends javax.swing.JDialog {
        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void dquantity_TFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dquantity_TFFocusGained
+    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
         // TODO add your handling code here:
         
-        dquantity_TF.selectAll();
-    }//GEN-LAST:event_dquantity_TFFocusGained
+        jTextField1.selectAll();
+    }//GEN-LAST:event_jTextField1FocusGained
 
-    private void dquantity_TFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dquantity_TFFocusLost
+    private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_dquantity_TFFocusLost
-String dialog_quantity;
-String dialog_discount;
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-       // Mainf mainform=new Mainf();
-        
-        
-       // DefaultTableModel model=(DefaultTableModel) mainform.jTable2.getModel();
-        
-      //model.addRow(new Object[]{"ok","ok","ok","ok"});
-      // mainform.totalPrice_eachitem=(Double.valueOf(dquantity_TF.getText()))+(Double.valueOf(mainform.ssaleprice));
-      // list.add(String.valueOf(mainform.totalPrice_eachitem));
-       
-     // model.addRow(list.toArray());
-      dialog_quantity=dquantity_TF.getText();
-      dialog_discount=jTextField2.getText();
-        dispose();
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void dquantity_TFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dquantity_TFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dquantity_TFActionPerformed
+    }//GEN-LAST:event_jTextField1FocusLost
 
     /**
      * @param args the command line arguments
@@ -231,12 +183,12 @@ String dialog_discount;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField dquantity_TF;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
