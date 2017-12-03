@@ -1382,7 +1382,7 @@ String squantity;
       
       tabledata(jTable2,"Total Quantity ", stotalquantity_TF, 2);
       tabledata(jTable2,"", subtotal_TF, 3);
-            
+            snetamount_TF.setText(subtotal_TF.getText());
       sales_product();
 //        
       totalitem_TF.setText("Total Item "+String.valueOf(jTable2.getRowCount()));
