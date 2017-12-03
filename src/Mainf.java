@@ -1680,7 +1680,7 @@ String squantity;
             snetamount_TF.setText(String.valueOf(snetamount));
         } catch (Exception e) {
             snetamount_TF.setText(subtotal_TF.getText());
-            //System.out.println("");
+            System.out.println("");
         }
     }//GEN-LAST:event_svat_TFKeyReleased
 
