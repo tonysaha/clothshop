@@ -649,18 +649,8 @@
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jDateChooser2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="Sale_sub" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                          <Component id="Sale_cancel" min="-2" pref="85" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="jDateChooser2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -692,12 +682,7 @@
                                   <Component id="jPanel10" min="-2" pref="301" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="Sale_cancel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Sale_sub" alignment="3" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jPanel9" max="32767" attributes="0"/>
                           </Group>
@@ -1382,25 +1367,6 @@
                   </Properties>
                 </Component>
                 <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
-                </Component>
-                <Component class="javax.swing.JLabel" name="Sale_sub">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/button/submit_deffalt.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="jLabel35"/>
-                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[85, 40]"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="Sale_cancel">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/button/cancel_deffolt.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="jLabel35"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
