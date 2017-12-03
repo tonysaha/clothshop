@@ -3,6 +3,8 @@
 import com.lowagie.text.DocumentException;
 import com.mxrck.autocompleter.TextAutoCompleter;
 import com.sun.media.jfxmediaimpl.MetadataParserImpl;
+import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,11 +18,15 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import javax.swing.text.JTextComponent;
 import net.proteanit.sql.DbUtils;
+//import net.proteanit.sql.DbUtils;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -138,25 +144,25 @@ public class Mainf extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        totalitem_TF = new javax.swing.JTextField();
+        stotalquantity_TF = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        spaidcash_TF = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        sreturncash_TF = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
+        subtotal_TF = new javax.swing.JTextField();
+        svat_TF = new javax.swing.JTextField();
+        sdiscount_TF = new javax.swing.JTextField();
+        snetamount_TF = new javax.swing.JTextField();
         jPanel12 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jTextField17 = new javax.swing.JTextField();
+        salesid_TF = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jTextField18 = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
@@ -527,7 +533,7 @@ public class Mainf extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
+        jButton1.setText("ADD");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -726,13 +732,28 @@ public class Mainf extends javax.swing.JFrame {
                 jTable2ComponentAdded(evt);
             }
         });
+        jTable2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTable2KeyPressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
-        jTextField9.setEditable(false);
-        jTextField9.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField9.setText("jTextField9");
+        totalitem_TF.setEditable(false);
+        totalitem_TF.setBackground(new java.awt.Color(255, 255, 255));
+        totalitem_TF.setText("Total Item 0");
+        totalitem_TF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalitem_TFActionPerformed(evt);
+            }
+        });
 
-        jTextField10.setText("jTextField10");
+        stotalquantity_TF.setText("Total Quantity 0");
+        stotalquantity_TF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stotalquantity_TFActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -740,11 +761,11 @@ public class Mainf extends javax.swing.JFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(totalitem_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(173, 173, 173)
-                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
-            .addComponent(jScrollPane2)
+                .addComponent(stotalquantity_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 823, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -753,8 +774,8 @@ public class Mainf extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(totalitem_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stotalquantity_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52))
         );
 
@@ -764,17 +785,25 @@ public class Mainf extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Paid Cash");
 
-        jTextField11.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField11.setText("jTextField11");
+        spaidcash_TF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        spaidcash_TF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                spaidcash_TFFocusGained(evt);
+            }
+        });
+        spaidcash_TF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                spaidcash_TFKeyReleased(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel17.setText("Return Cash");
 
-        jTextField12.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextField12.setForeground(new java.awt.Color(255, 255, 0));
-        jTextField12.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField12.setText("jTextField12");
+        sreturncash_TF.setBackground(new java.awt.Color(0, 0, 0));
+        sreturncash_TF.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        sreturncash_TF.setForeground(new java.awt.Color(255, 255, 0));
+        sreturncash_TF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jLabel18.setBackground(new java.awt.Color(0, 204, 204));
         jLabel18.setText("Sub Total");
@@ -790,13 +819,7 @@ public class Mainf extends javax.swing.JFrame {
         jLabel21.setText("Net Amount");
         jLabel21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
-        jTextField13.setText("jTextField13");
-
-        jTextField14.setText("jTextField14");
-
-        jTextField15.setText("jTextField15");
-
-        jTextField16.setText("jTextField16");
+        snetamount_TF.setText("0.0");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -808,8 +831,8 @@ public class Mainf extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField11)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spaidcash_TF)
+                    .addComponent(sreturncash_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -818,10 +841,10 @@ public class Mainf extends javax.swing.JFrame {
                     .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                    .addComponent(jTextField14)
-                    .addComponent(jTextField15)
-                    .addComponent(jTextField16))
+                    .addComponent(subtotal_TF, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                    .addComponent(svat_TF)
+                    .addComponent(sdiscount_TF)
+                    .addComponent(snetamount_TF))
                 .addGap(39, 39, 39))
         );
         jPanel11Layout.setVerticalGroup(
@@ -833,7 +856,7 @@ public class Mainf extends javax.swing.JFrame {
                     .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(spaidcash_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -844,19 +867,19 @@ public class Mainf extends javax.swing.JFrame {
                         .addGap(17, 17, 17)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(sreturncash_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(subtotal_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(svat_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sdiscount_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(snetamount_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jTextField12.getAccessibleContext().setAccessibleDescription("");
+        sreturncash_TF.getAccessibleContext().setAccessibleDescription("");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -876,7 +899,7 @@ public class Mainf extends javax.swing.JFrame {
 
         jLabel23.setText("Bill No");
 
-        jTextField17.setText("jTextField17");
+        salesid_TF.setText("jTextField17");
 
         jLabel24.setText("Customer Name");
 
@@ -907,7 +930,7 @@ public class Mainf extends javax.swing.JFrame {
                                 .addGap(14, 14, 14)
                                 .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(salesid_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(43, 43, 43)
                                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -938,7 +961,7 @@ public class Mainf extends javax.swing.JFrame {
                             .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField17)
+                                .addComponent(salesid_TF)
                                 .addComponent(jLabel25)
                                 .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1314,25 +1337,39 @@ public class Mainf extends javax.swing.JFrame {
         // TODO add your handling code here:
        
     }//GEN-LAST:event_jTable2ComponentAdded
-
+double eachItem_STprice;
+String squantity;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try{
       NewJDialog jd=new NewJDialog(this, rootPaneCheckingEnabled);
       jd.setVisible(true);
+       squantity=jd.dquantity;
+//     
+       List<String> list=new ArrayList<String>();
+            DefaultTableModel model=(DefaultTableModel) jTable2.getModel();
       
-      List<String> list=new ArrayList<String>();
-      DefaultTableModel model=(DefaultTableModel) jTable2.getModel();
-      list.add(spname_TF.getText());
-      list.add(ssprice_TF.getText());
-      list.add(jd.dquantity);
-      double eachItem_Tprice=(Double.valueOf(ssprice_TF.getText()))*(Double.valueOf(jd.dquantity));
-      list.add(String.valueOf(eachItem_Tprice));
-      
+       list.add(spname_TF.getText());
+       list.add(ssprice_TF.getText());
+       list.add(squantity);
+//     
+       eachItem_STprice=((Double.valueOf(ssprice_TF.getText()))*(Double.valueOf(jd.dquantity))-(Double.valueOf(jd.ddiscount))*(Double.valueOf(jd.dquantity)));
+        list.add(String.valueOf(eachItem_STprice));
+
+    
       model.addRow(list.toArray());
+      
+      tabledata(jTable2,"Total Quantity ", stotalquantity_TF, 2);
+      tabledata(jTable2,"", subtotal_TF, 3);
+            
+      sales_product();
+//        
+      totalitem_TF.setText("Total Item "+String.valueOf(jTable2.getRowCount()));
+            
       
         }
         catch(Exception e){
+           System.out.println(e);
         
         }
         
@@ -1340,7 +1377,28 @@ public class Mainf extends javax.swing.JFrame {
         //qt.setEnabled(true);
        
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    
+    public void sales(){
+        try {
+            String sql="INSERT INTO sales(Sales_Id)"+"VALUES"+"('"+salesid_TF.getText()+"')";
+            st.executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(Mainf.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
+     }
+    public void sales_product(){
+        try {
+            NewJDialog jd=new NewJDialog(this, rootPaneCheckingEnabled);
+            String sql="INSERT INTO sales_product(Sales_Id,Product_id,Quantity,Discount,Total_amount)"+"VALUES"+"('"+salesid_TF.getText()+"','"+spid_TF.getText()+"','"+squantity+"','"+jd.ddiscount+"','"+String.valueOf(eachItem_STprice)+"')";
+            st.executeUpdate(sql);
+        } catch (SQLException ex) {
+            //Logger.getLogger(Mainf.class.getName()).log(Level.SEVERE, null, ex);
+        JOptionPane.showMessageDialog(null, ex);
+        }
+    
+    }
     private void jLabel26MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel26MouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel26MouseEntered
@@ -1416,6 +1474,83 @@ public class Mainf extends javax.swing.JFrame {
     private void sqty_TFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sqty_TFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sqty_TFActionPerformed
+
+    private void totalitem_TFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalitem_TFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_totalitem_TFActionPerformed
+
+    private void stotalquantity_TFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stotalquantity_TFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stotalquantity_TFActionPerformed
+
+    private void spaidcash_TFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_spaidcash_TFFocusGained
+        // TODO add your handling code here:
+        
+        //sreturncash_TF.setText(String.valueOf(Double.valueOf(snetamount_TF.getText())-Double.valueOf(spaidcash_TF.getText())));
+    }//GEN-LAST:event_spaidcash_TFFocusGained
+
+    private void spaidcash_TFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_spaidcash_TFKeyReleased
+        // TODO add your handling code here:
+        try {
+           
+           double returncash=(Double.valueOf(snetamount_TF.getText())-Double.valueOf(spaidcash_TF.getText()));
+            sreturncash_TF.setText(String.valueOf(returncash));
+        } catch (Exception e) {
+            //System.out.println("0.0");
+            sreturncash_TF.setText("0.0");
+        }
+    }//GEN-LAST:event_spaidcash_TFKeyReleased
+
+    private void jTable2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable2KeyPressed
+        // TODO add your handling code here:
+        try {
+            
+      
+        DefaultTableModel model=(DefaultTableModel) jTable2.getModel();
+        
+        if(evt.getKeyCode()==KeyEvent.VK_DELETE)
+            if(JOptionPane.showConfirmDialog(null, "Are you sure delete item?","Warning",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+                String productname=(String) (jTable2.getValueAt(jTable2.getSelectedRow(), 0));
+                String quantity=(String) (jTable2.getValueAt(jTable2.getSelectedRow(), 2));
+                String bpid="";
+                model.removeRow(jTable2.getSelectedRow());
+      jTable2.repaint();
+       tabledata(jTable2,"Toatl Quantity ", stotalquantity_TF, 2);
+      tabledata(jTable2,"", subtotal_TF, 3);
+                try {
+                    
+               
+ 
+              String src1="Select ProductId from master where productName='"+productname+"'";
+            
+             rs=st.executeQuery(src1);
+             
+            
+            while(rs.next()){
+                
+           
+                bpid=(rs.getString(1));
+                System.out.println(bpid);
+                
+            }
+            
+            String sql2="delete from sales_product where Product_Id='"+bpid+"' and Sales_Id='"+salesid_TF.getText()+"' and Quantity='"+quantity+"' ";
+            st.executeUpdate(sql2);
+             } catch (Exception e) {
+                    System.out.println(e);
+                }
+      //sales_product();
+//        
+      totalitem_TF.setText("Total Item "+String.valueOf(jTable2.getRowCount()));
+      if(jTable2.getRowCount()==0){
+          stotalquantity_TF.setText("Total Quantity 0");
+          subtotal_TF.setText("");
+      }
+            }
+          } catch (Exception e) {
+              System.out.println(e);
+        }
+    }//GEN-LAST:event_jTable2KeyPressed
     
     /**
      * @param args the command line arguments
@@ -1469,7 +1604,34 @@ public class Mainf extends javax.swing.JFrame {
     
     }
     
+    public void tabledata(JTable tbl,String st,JTextComponent tx,int c){
+    //tb1=table name for value we get,tx=textfield where we show the sum value,and c=column name where valu we add
     
+    double sum=0;
+    int m=tbl.getRowCount();
+    int n=tbl.getColumnCount();
+    String[][] table=new String[m][n];
+    for (int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+        
+            table[i][j]=tbl.getValueAt(i, j).toString();
+            System.out.println(tbl.getValueAt(i, j).toString());
+        
+        }
+    }
+    for (int i=0;i<m;i++){
+        
+        String tb=table[i][c];
+        System.out.println(tb);
+        double tbt=Double.parseDouble(tb);
+        sum=sum+tbt;
+        System.out.println(sum);
+        tx.setText(String.format(st+"%.2f",sum));
+        
+        
+    }
+    
+    }
     
     public void mainf_clear(){
         
@@ -1597,14 +1759,6 @@ public class Mainf extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
@@ -1615,13 +1769,21 @@ public class Mainf extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField salesid_TF;
     private javax.swing.JTextField sbuyprice_TF;
     private javax.swing.JComboBox<String> scat_CB;
     private javax.swing.JTextField sdis_TF;
+    private javax.swing.JTextField sdiscount_TF;
+    private javax.swing.JTextField snetamount_TF;
+    private javax.swing.JTextField spaidcash_TF;
     private javax.swing.JTextField spid_TF;
     private javax.swing.JTextField spname_TF;
     private javax.swing.JTextField sqty_TF;
+    private javax.swing.JTextField sreturncash_TF;
     private javax.swing.JTextField ssprice_TF;
+    private javax.swing.JTextField stotalquantity_TF;
+    private javax.swing.JTextField subtotal_TF;
+    private javax.swing.JTextField svat_TF;
+    private javax.swing.JTextField totalitem_TF;
     // End of variables declaration//GEN-END:variables
 }

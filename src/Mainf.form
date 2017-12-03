@@ -638,7 +638,7 @@
                                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                           <Component id="jLabel23" min="-2" pref="37" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextField17" min="-2" pref="92" max="-2" attributes="0"/>
+                                          <Component id="salesid_TF" min="-2" pref="92" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                           <Component id="jLabel24" min="-2" pref="95" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
@@ -677,7 +677,7 @@
                                       <Component id="jTextField18" alignment="0" min="-2" pref="26" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel23" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                          <Component id="jTextField17" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="salesid_TF" alignment="3" max="32767" attributes="0"/>
                                           <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextField19" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -743,7 +743,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jButton1"/>
+                        <Property name="text" type="java.lang.String" value="ADD"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -992,12 +992,12 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="jTextField9" min="-2" pref="383" max="-2" attributes="0"/>
+                              <Component id="totalitem_TF" min="-2" pref="383" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
-                              <Component id="jTextField10" min="-2" pref="107" max="-2" attributes="0"/>
-                              <EmptySpace pref="121" max="32767" attributes="0"/>
+                              <Component id="stotalquantity_TF" min="-2" pref="129" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" alignment="0" pref="823" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -1007,8 +1007,8 @@
                               <Component id="jScrollPane2" min="-2" pref="247" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextField9" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jTextField10" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="totalitem_TF" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="stotalquantity_TF" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                           </Group>
@@ -1049,23 +1049,30 @@
                           </Properties>
                           <Events>
                             <EventHandler event="componentAdded" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="jTable2ComponentAdded"/>
+                            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTable2KeyPressed"/>
                           </Events>
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JTextField" name="jTextField9">
+                    <Component class="javax.swing.JTextField" name="totalitem_TF">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField9"/>
+                        <Property name="text" type="java.lang.String" value="Total Item 0"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="totalitem_TFActionPerformed"/>
+                      </Events>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField10">
+                    <Component class="javax.swing.JTextField" name="stotalquantity_TF">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField10"/>
+                        <Property name="text" type="java.lang.String" value="Total Quantity 0"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="stotalquantity_TFActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1091,8 +1098,8 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextField11" max="32767" attributes="0"/>
-                                  <Component id="jTextField12" min="-2" pref="127" max="-2" attributes="0"/>
+                                  <Component id="spaidcash_TF" max="32767" attributes="0"/>
+                                  <Component id="sreturncash_TF" min="-2" pref="127" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1103,10 +1110,10 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextField13" pref="146" max="32767" attributes="0"/>
-                                  <Component id="jTextField14" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField15" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField16" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="subtotal_TF" pref="146" max="32767" attributes="0"/>
+                                  <Component id="svat_TF" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="sdiscount_TF" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="snetamount_TF" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                           </Group>
@@ -1121,7 +1128,7 @@
                                   <Component id="jLabel19" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                      <Component id="jTextField11" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="spaidcash_TF" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1135,19 +1142,19 @@
                                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel17" alignment="3" max="32767" attributes="0"/>
-                                          <Component id="jTextField12" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="sreturncash_TF" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jTextField13" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="subtotal_TF" min="-2" pref="25" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField14" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="svat_TF" min="-2" pref="25" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField15" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="sdiscount_TF" min="-2" pref="25" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTextField16" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="snetamount_TF" min="-2" pref="25" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1162,11 +1169,14 @@
                         <Property name="text" type="java.lang.String" value="Paid Cash"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField11">
+                    <Component class="javax.swing.JTextField" name="spaidcash_TF">
                       <Properties>
                         <Property name="horizontalAlignment" type="int" value="4"/>
-                        <Property name="text" type="java.lang.String" value="jTextField11"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="spaidcash_TFFocusGained"/>
+                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="spaidcash_TFKeyReleased"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel17">
                       <Properties>
@@ -1176,7 +1186,7 @@
                         <Property name="text" type="java.lang.String" value="Return Cash"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField12">
+                    <Component class="javax.swing.JTextField" name="sreturncash_TF">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="0" green="0" red="0" type="rgb"/>
@@ -1188,7 +1198,6 @@
                           <Color blue="0" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="horizontalAlignment" type="int" value="4"/>
-                        <Property name="text" type="java.lang.String" value="jTextField12"/>
                       </Properties>
                       <AccessibilityProperties>
                         <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
@@ -1248,24 +1257,15 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField13">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField13"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="subtotal_TF">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField14">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField14"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="svat_TF">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField15">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField15"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="sdiscount_TF">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField16">
+                    <Component class="javax.swing.JTextField" name="snetamount_TF">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField16"/>
+                        <Property name="text" type="java.lang.String" value="0.0"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1304,7 +1304,7 @@
                     <Property name="text" type="java.lang.String" value="Bill No"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField17">
+                <Component class="javax.swing.JTextField" name="salesid_TF">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField17"/>
                   </Properties>

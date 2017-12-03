@@ -13,6 +13,9 @@ public class NewJDialog extends javax.swing.JDialog {
     /**
      * Creates new form NewJDialog
      */
+    
+   public String dquantity;
+    public String ddiscount;
     public NewJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -145,8 +148,7 @@ public class NewJDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jTextField1FocusLost
-String dquantity;
-String ddiscount;
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         dquantity=jTextField1.getText();
