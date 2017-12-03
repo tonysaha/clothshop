@@ -1161,7 +1161,8 @@ public class Mainf extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Added Sucessfull");
             mainf_clear();
         } catch (Exception e) {
-            //System.out.println(e);
+            System.out.println(e);
+            
             JOptionPane.showMessageDialog(null, "NotSucessfull ");
         }
     }//GEN-LAST:event_jLabel11MousePressed
