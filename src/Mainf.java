@@ -886,6 +886,15 @@ public class Mainf extends javax.swing.JFrame {
         jLabel21.setText("Net Amount");
         jLabel21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
+        svat_TF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                svat_TFKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                svat_TFKeyReleased(evt);
+            }
+        });
+
         snetamount_TF.setText("0.0");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -1629,9 +1638,11 @@ String squantity;
       //sales_product();
 //        
       totalitem_TF.setText("Total Item "+String.valueOf(jTable2.getRowCount()));
+       snetamount_TF.setText(subtotal_TF.getText());
       if(jTable2.getRowCount()==0){
           stotalquantity_TF.setText("Total Quantity 0");
-          subtotal_TF.setText("");
+          subtotal_TF.setText("0.0");
+          snetamount_TF.setText("0.0");
       }
             }
           } catch (Exception e) {
@@ -1642,6 +1653,28 @@ String squantity;
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField10ActionPerformed
+
+    private void svat_TFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_svat_TFKeyPressed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_svat_TFKeyPressed
+
+    private void svat_TFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_svat_TFKeyReleased
+        // TODO add your handling code here:
+        
+        try {
+            double ssamount=(Double.valueOf(subtotal_TF.getText()));
+            double svat=(Double.valueOf(svat_TF.getText()));
+            double totalvat=(ssamount*svat)/100;
+            System.out.println(totalvat);
+            double snetamount=ssamount+totalvat;
+            System.out.println(snetamount);
+            snetamount_TF.setText(String.valueOf(snetamount));
+        } catch (Exception e) {
+            snetamount_TF.setText(subtotal_TF.getText());
+        }
+    }//GEN-LAST:event_svat_TFKeyReleased
     
     /**
      * @param args the command line arguments

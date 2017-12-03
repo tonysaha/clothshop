@@ -1365,6 +1365,10 @@
                     <Component class="javax.swing.JTextField" name="subtotal_TF">
                     </Component>
                     <Component class="javax.swing.JTextField" name="svat_TF">
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="svat_TFKeyPressed"/>
+                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="svat_TFKeyReleased"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="sdiscount_TF">
                     </Component>
