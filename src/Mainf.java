@@ -1530,14 +1530,15 @@ String squantity;
                 
            
                 bpid=(rs.getString(1));
-                System.out.println(bpid);
+               // System.out.println(bpid);
                 
+                System.out.println("ok"+bpid);
             }
             
             String sql2="delete from sales_product where Product_Id='"+bpid+"' and Sales_Id='"+salesid_TF.getText()+"' and Quantity='"+quantity+"' ";
             st.executeUpdate(sql2);
              } catch (Exception e) {
-                    System.out.println(e);
+                    //System.out.println(e);
                 }
       //sales_product();
 //        
