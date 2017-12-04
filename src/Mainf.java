@@ -1915,11 +1915,15 @@ String squantity;
       sales_product();
 //        
       totalitem_TF.setText("Total Item "+String.valueOf(jTable2.getRowCount()));
-            
+          
+      
+      
+     // Clear ar Code Ar por hoba.......................
+     
       
         }
         catch(Exception e){
-           System.out.println(e);
+          // System.out.println(e);
         
         }
         
@@ -1943,6 +1947,10 @@ String squantity;
             NewJDialog jd=new NewJDialog(this, rootPaneCheckingEnabled);
             String sql="INSERT INTO sales_product(Sales_Id,Product_id,Quantity,Discount,Total_amount)"+"VALUES"+"('"+salesid_TF.getText()+"','"+spid_TF.getText()+"','"+squantity+"','"+jd.ddiscount+"','"+String.valueOf(eachItem_STprice)+"')";
             st.executeUpdate(sql);
+           qty=String.valueOf(Integer.valueOf(qty)-Integer.valueOf(squantity));
+           String sql2="update master set qty='"+qty+"' where ProductId='"+spid_TF.getText()+"'";
+           st.executeUpdate(sql2);
+         System.out.println(qty);
         } catch (SQLException ex) {
             //Logger.getLogger(Mainf.class.getName()).log(Level.SEVERE, null, ex);
         JOptionPane.showMessageDialog(null, ex);
@@ -1993,6 +2001,7 @@ String squantity;
                 ssprice_TF.setText(rs.getString(5));
                 sbuyprice_TF.setText(rs.getString(4));
                 sqty_TF.setText(rs.getString(6));
+                qty=rs.getString(6);
                 scat_CB.setSelectedItem(rs.getString(2));
                 
             }   
@@ -2132,6 +2141,43 @@ String squantity;
       
     }//GEN-LAST:event_svat_TFKeyReleased
     private void Sale_cancelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Sale_cancelMousePressed
+       
+        //Update quantity when Cancle...............................................................................
+        try {
+            
+        
+        String sql="select Product_Id,Quantity from sales_product where Sales_Id='"+salesid_TF.getText()+"'";
+        List<String>list=new ArrayList<String>();
+        List<String>list2=new ArrayList<String>();
+         rs=st.executeQuery(sql);
+            
+            while(rs.next()){
+                list.add(rs.getString(1));
+                list2.add(rs.getString("Quantity"));
+                
+            }
+             for(int i = 0 ; i < list.size(); i++){
+                 String dbquantity="";
+                 String masterqty="select qty from master where ProductId='"+list.get(i)+"'";
+                rs=st.executeQuery(masterqty);
+                  while(rs.next()){
+                
+           
+                dbquantity=(rs.getString("qty"));
+                      //System.out.println(dbquantity);
+                
+            }
+                 String newqty=String.valueOf((Integer.valueOf(dbquantity))+(Integer.valueOf(list2.get(i))));
+                 //System.out.println(qty);
+        String sql1="update master set qty='"+newqty+"' where ProductId='"+list.get(i)+"'";
+        st.executeUpdate(sql1);
+    }
+            
+            } catch (Exception e) {
+                //System.out.println(e);
+        }
+        
+        //Delete product when cancle.................................................................................
         String sql2="delete from sales_product where Sales_Id='"+salesid_TF.getText()+"'";
         try {
             st.executeUpdate(sql2);
@@ -2158,6 +2204,8 @@ String squantity;
             JOptionPane.showMessageDialog(null,"Not submited....");
             System.out.println(ex);
         }
+        sale_submit_clear();
+        RemoveTableRow(jTable2);
     }//GEN-LAST:event_jLabel39MousePressed
 
     private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
@@ -2302,6 +2350,16 @@ String squantity;
     
     public void sale_submit_clear(){
     jTextField8.setText("");
+    jTextField18.setText("");
+    jTextField19.setText("");
+    totalitem_TF.setText("");
+    stotalquantity_TF.setText("");
+    spaidcash_TF.setText("");
+    subtotal_TF.setText("");
+    svat_TF.setText("");
+    sdiscount_TF.setText("");
+    snetamount_TF.setText("");
+    sreturncash_TF.setText("");
     }
     
     public void sale_cancel_clear(){
@@ -2325,7 +2383,7 @@ String squantity;
     
     }
     public void table2(){
-           String Sql="Select *from master";
+           String Sql="Select *from sales";
        try {
            rs=st.executeQuery(Sql);
            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
