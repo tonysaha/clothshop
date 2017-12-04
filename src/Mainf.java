@@ -2072,6 +2072,7 @@ String squantity;
                 String productname=(String) (jTable2.getValueAt(jTable2.getSelectedRow(), 0));
                 String quantity=(String) (jTable2.getValueAt(jTable2.getSelectedRow(), 2));
                 String bpid="";
+                String getQuntity="";
                 model.removeRow(jTable2.getSelectedRow());
       jTable2.repaint();
        tabledata(jTable2,"Toatl Quantity ", stotalquantity_TF, 2);
@@ -2080,7 +2081,7 @@ String squantity;
                     
                
  
-              String src1="Select ProductId from master where productName='"+productname+"'";
+              String src1="Select ProductId,qty from master where productName='"+productname+"'";
             
              rs=st.executeQuery(src1);
              
@@ -2089,15 +2090,20 @@ String squantity;
                 
            
                 bpid=(rs.getString(1));
+                getQuntity=(rs.getString("qty"));
                // System.out.println(bpid);
                 
-                System.out.println("ok"+bpid);
+               // System.out.println("ok"+bpid);
             }
+            
+            String updateqty=String.valueOf((Integer.valueOf(getQuntity))+(Integer.valueOf(quantity)));
+            String updatesql="update master set qty='"+updateqty+"' where ProductId='"+bpid+"'";
+            st.executeUpdate(updatesql);
             
             String sql2="delete from sales_product where Product_Id='"+bpid+"' and Sales_Id='"+salesid_TF.getText()+"' and Quantity='"+quantity+"' ";
             st.executeUpdate(sql2);
              } catch (Exception e) {
-                    //System.out.println(e);
+                    System.out.println(e);
                 }
       //sales_product();
 //        
