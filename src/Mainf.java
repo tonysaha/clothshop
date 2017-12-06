@@ -640,8 +640,6 @@ public class Mainf extends javax.swing.JFrame {
 
         jLabel34.setText("Catagory");
 
-        jTextField26.setText("jTextField20");
-
         scat_CB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
@@ -2434,7 +2432,7 @@ double eachItem_PTprice;
         list.add(String.valueOf(eachItem_PTprice));
     
       model.addRow(list.toArray());
-      
+                 System.out.println("okk");
       tabledata(jTable3,"", psubtotal_TF, 3);
       invoicenmber(pproduct_id);
         } catch (Exception e) {

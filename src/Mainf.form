@@ -924,9 +924,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="jTextField26">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField20"/>
-                              </Properties>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="scat_CB">
                               <Properties>
