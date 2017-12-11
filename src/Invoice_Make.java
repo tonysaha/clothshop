@@ -38,7 +38,7 @@ public class Invoice_Make {
       for (int i=0;i<m;i++){
             
                 table_data_print= table_data_print+"\n"+table[i][0]+"\t"+table[i][1]+"\t"+table[i][2]+"\t\t"+table[i][3]+"\t"+"\n";
-                System.out.println(table_data_print);
+               // System.out.println(table_data_print);
       }
           String inv="\t\tBill No :"+billNO.getText()+"\n Date :"+date.getDate()+"\n_____________________________________________________________________"+"\n"+table_data_print+"\n"+"_____________________________________________________________________"+
                   "\n"+"\t"+"\t"+"\t  "+"Sub Total   =     "+totalprice.getText()+" TK"+"\n"+
