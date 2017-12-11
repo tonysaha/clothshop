@@ -1817,6 +1817,7 @@ public class Mainf extends javax.swing.JFrame {
         jPanel2.add(jPanel3);
         jPanel2.repaint();
         jPanel2.revalidate();
+        table1();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -2538,6 +2539,8 @@ String squantity;
         String bpid="";
         autoId(pproduct_id);
         jButton2.setEnabled(true);
+        jButton3.setEnabled(false);
+        
         pbuyprice_TF.setText("");
         pcat_CB.setSelectedItem("item1");
         psaleprice_TF.setText("");
@@ -2555,6 +2558,7 @@ String squantity;
            
                 pproduct_id.setText(rs.getString(1));
                 jButton2.setEnabled(false);
+                jButton3.setEnabled(true);
                  
                 psaleprice_TF.setText(rs.getString(5));
                 pbuyprice_TF.setText(rs.getString(4));
@@ -2710,8 +2714,8 @@ double eachItem_PTprice;
             st.executeUpdate(sql2);
             JOptionPane.showMessageDialog(null,"submited....");
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null,"Not submited....");
-            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,"Not submited...."+ex);
+            //JOptionPane.showMessageDialog(null, ex);
         }
         if("".equals(pvat_TF.getText())){
             svat_TF.setText("0");
