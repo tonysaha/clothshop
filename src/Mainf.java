@@ -440,6 +440,9 @@ public class Mainf extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField6KeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField6KeyTyped(evt);
+            }
         });
 
         jTable1.setAutoCreateRowSorter(true);
@@ -1834,6 +1837,7 @@ public class Mainf extends javax.swing.JFrame {
         jPanel2.add(jPanel4);
         jPanel2.repaint();
         jPanel2.revalidate();
+        itemauto(jTextField8, "barcode", 1);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -2073,15 +2077,16 @@ public class Mainf extends javax.swing.JFrame {
 
     private void jTextField6FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusGained
         // TODO add your handling code here:
-                String Sql="Select *from master where ProductId = '"+jTextField6.getText()+"'";
-       try {
-           rs=st.executeQuery(Sql);
-           jTable1.setModel(DbUtils.resultSetToTableModel(rs));
-           
-           
-       } catch (Exception e) {
-           JOptionPane.showMessageDialog(null, "No Product In List");
-       }
+        
+//                String Sql="Select *from master where ProductId = '"+jTextField6.getText()+"'";
+//       try {
+//           rs=st.executeQuery(Sql);
+//           jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+//           
+//           
+//       } catch (Exception e) {
+//           JOptionPane.showMessageDialog(null, "No Product In List");
+//       }
     }//GEN-LAST:event_jTextField6FocusGained
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -2130,7 +2135,15 @@ String squantity;
       
       
      // Clear ar Code Ar por hoba.......................
-     
+        
+      spid_TF.setText("");
+      spname_TF.setText("");
+      ssprice_TF.setText("");
+      sbuyprice_TF.setText("");
+      sqty_TF.setText("");
+      sdis_TF.setText("");
+      jTextField26.setText("");
+      scat_CB.setSelectedIndex(0);
       
         }
         catch(Exception e){
@@ -2226,7 +2239,7 @@ String squantity;
     }//GEN-LAST:event_jTextField8ActionPerformed
 
     private void jTextField8FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField8FocusGained
-        
+        itemauto(jTextField8, "barcode", 1);
         
         String bpid="";
         try {
@@ -2890,6 +2903,11 @@ double eachItem_PTprice;
             
         }
     }//GEN-LAST:event_ppname_TFKeyTyped
+
+    private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextField6KeyTyped
     
     /**
      * @param args the command line arguments
@@ -2988,8 +3006,8 @@ double eachItem_PTprice;
     jTextField8.setText("");
     jTextField18.setText("");
     jTextField19.setText("");
-    totalitem_TF.setText("");
-    stotalquantity_TF.setText("");
+    totalitem_TF.setText("Total Item 0");
+    stotalquantity_TF.setText("Total Quantity 0");
     spaidcash_TF.setText("");
     subtotal_TF.setText("");
     svat_TF.setText("");
