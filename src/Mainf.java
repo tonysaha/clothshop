@@ -54,7 +54,7 @@ public class Mainf extends javax.swing.JFrame {
     String prate;
     String srate;
     String ctg;
-    String qty;
+   public String qty;
     String bcode;
     Connection connection;
     Statement st;
@@ -1866,7 +1866,7 @@ public class Mainf extends javax.swing.JFrame {
                   File myFile = new File("src\\Barcode\\Java4s_BarCode_128.pdf");
                   Desktop.getDesktop().open(myFile);
               } catch (IOException ex) {
-                  System.out.println(ex);
+                  JOptionPane.showMessageDialog(null, ex);
               }
           
           }
@@ -2105,12 +2105,20 @@ public class Mainf extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable2ComponentAdded
 double eachItem_STprice;
 String squantity;
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try{
+          
       NewJDialog jd=new NewJDialog(this, rootPaneCheckingEnabled);
       jd.setVisible(true);
+      
        squantity=jd.dquantity;
+       
+        int sqt=Integer.valueOf(squantity);
+        int stockqt=Integer.parseInt(sqty_TF.getText());
+        
+        if(sqt<=stockqt){
 //     
        List<String> list=new ArrayList<String>();
             DefaultTableModel model=(DefaultTableModel) jTable2.getModel();
@@ -2146,6 +2154,15 @@ String squantity;
       scat_CB.setSelectedIndex(0);
       
         }
+        
+        else{  
+               
+      JOptionPane.showMessageDialog(null, "Quantity Not Available...Stock "+stockqt);
+        
+        }
+        }
+        
+        
         catch(Exception e){
           // System.out.println(e);
         
@@ -2174,7 +2191,7 @@ String squantity;
            qty=String.valueOf(Integer.valueOf(qty)-Integer.valueOf(squantity));
            String sql2="update master set qty='"+qty+"' where ProductId='"+spid_TF.getText()+"'";
            st.executeUpdate(sql2);
-         System.out.println(qty);
+        // System.out.println(qty);
         } catch (SQLException ex) {
             //Logger.getLogger(Mainf.class.getName()).log(Level.SEVERE, null, ex);
         JOptionPane.showMessageDialog(null, ex);
@@ -2184,7 +2201,7 @@ String squantity;
     public void purchase_productAdd(){
       try {
             //double each_producttotal=(Double.valueOf(pbuyprice_TF.getText())*Double.valueOf(pquantity_TF.getText()));
-            System.out.println(eachItem_PTprice);
+           // System.out.println(eachItem_PTprice);
             String sql="INSERT INTO purchase_product(p_id,Product_id,Quantity,Buy_price,Total_price)"+"VALUES"+"('"+ppurchaseid_TF.getText()+"','"+pproduct_id.getText()+"','"+pquantity_TF.getText()+"','"+pbuyprice_TF.getText()+"','"+String.valueOf(eachItem_PTprice)+"')";
             
             
@@ -2221,7 +2238,7 @@ String squantity;
          st.executeUpdate(sql2);
          st.executeUpdate(sql);
         } catch (Exception e) {
-           System.out.println(e);
+          JOptionPane.showMessageDialog(null, e);
         }
                
     
@@ -2372,7 +2389,7 @@ String squantity;
             String sql2="delete from sales_product where Product_Id='"+bpid+"' and Sales_Id='"+salesid_TF.getText()+"' and Quantity='"+quantity+"' ";
             st.executeUpdate(sql2);
              } catch (Exception e) {
-                    System.out.println(e);
+                    JOptionPane.showMessageDialog(null, e);
                 }
       //sales_product();
 //        
@@ -2385,7 +2402,7 @@ String squantity;
       }
             }
           } catch (Exception e) {
-              System.out.println(e);
+             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jTable2KeyPressed
 
@@ -2461,7 +2478,7 @@ String squantity;
           
         } catch (Exception ex) {
             //JOptionPane.showMessageDialog(null,"Not deleted....");
-            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
         sale_cancel_clear();
         //table2();
@@ -2476,8 +2493,8 @@ String squantity;
             st.executeUpdate(sql2);
             JOptionPane.showMessageDialog(null,"submited....");
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null,"Not submited....");
-            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,"Not submited...."+ex);
+           // System.out.println(ex);
         }
         if("".equals(svat_TF.getText())){
             svat_TF.setText("0");
@@ -2707,7 +2724,7 @@ double eachItem_PTprice;
            jTable4.setModel(DbUtils.resultSetToTableModel(rs));
             
         } catch (Exception e) {
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -2804,18 +2821,18 @@ double eachItem_PTprice;
                 getQuntity=(rs.getString("qty"));
 //               System.out.println(bpid);
 //                
-               System.out.println("ok"+getQuntity);
+              // System.out.println("ok"+getQuntity);
             }
             
             String updateqty=String.valueOf((Integer.valueOf(getQuntity))-(Integer.valueOf(quantity)));
-             System.out.println("update ok"+updateqty);
+             //System.out.println("update ok"+updateqty);
             String updatesql="update master set qty='"+updateqty+"' where ProductId='"+bpid+"'";
             st.executeUpdate(updatesql);
             
             String sql2="delete from purchase_product where Product_id='"+bpid+"' and p_id='"+ppurchaseid_TF.getText()+"' and Quantity='"+quantity+"' ";
             st.executeUpdate(sql2);
              } catch (Exception e) {
-                    System.out.println(e);
+                    JOptionPane.showMessageDialog(null, e);
                 }
       //sales_product();
 //        
@@ -2828,7 +2845,7 @@ double eachItem_PTprice;
       }
             }
           } catch (Exception e) {
-              System.out.println(e);
+              JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jTable3KeyPressed
 
@@ -2972,17 +2989,17 @@ double eachItem_PTprice;
         for(int j=0;j<n;j++){
         
             table[i][j]=tbl.getValueAt(i, j).toString();
-            System.out.println(tbl.getValueAt(i, j).toString());
+          //  System.out.println(tbl.getValueAt(i, j).toString());
         
         }
     }
     for (int i=0;i<m;i++){
         
         String tb=table[i][c];
-        System.out.println(tb);
+       // System.out.println(tb);
         double tbt=Double.parseDouble(tb);
         sum=sum+tbt;
-        System.out.println(sum);
+      //  System.out.println(sum);
         tx.setText(String.format(st+"%.2f",sum));
         
         
@@ -3043,7 +3060,7 @@ double eachItem_PTprice;
            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
            
        } catch (Exception e) {
-           System.out.println(e);
+           JOptionPane.showMessageDialog(null, e);
        }
     }
     
@@ -3055,7 +3072,7 @@ double eachItem_PTprice;
            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
            
        } catch (Exception e) {
-           System.out.println(e);
+           JOptionPane.showMessageDialog(null, e);
        }
    
    }
@@ -3085,7 +3102,7 @@ double eachItem_PTprice;
             
             
         } catch (Exception ex) {
-            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
  
    }
@@ -3114,7 +3131,7 @@ double eachItem_PTprice;
             
             
         } catch (Exception ex) {
-            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
        } 
         
@@ -3144,7 +3161,7 @@ double eachItem_PTprice;
             
             
         } catch (Exception ex) {
-            System.out.println(ex);
+           JOptionPane.showMessageDialog(null, ex);
         }
        
        

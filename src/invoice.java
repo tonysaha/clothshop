@@ -44,6 +44,7 @@ public invoice(String para){
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
