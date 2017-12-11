@@ -1217,6 +1217,11 @@ public class Mainf extends javax.swing.JFrame {
                 ppname_TFFocusGained(evt);
             }
         });
+        ppname_TF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ppname_TFKeyTyped(evt);
+            }
+        });
 
         pquantity_TF.setText("0");
 
@@ -2535,7 +2540,7 @@ String squantity;
     }//GEN-LAST:event_pproduct_idFocusGained
 
     private void ppname_TFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ppname_TFFocusGained
-          
+          itemauto(ppname_TF, "master", 3);
         String bpid="";
         autoId(pproduct_id);
         jButton2.setEnabled(true);
@@ -2728,6 +2733,11 @@ double eachItem_PTprice;
         //sale_submit_clear();
         RemoveTableRow(jTable3);
         autoPurchaseId(ppurchaseid_TF);
+        psupplier_TF.setText("");
+        pscontact_TF.setText("");
+        jTextField38.setText("");
+        jTextField37.setText("");
+        
     }//GEN-LAST:event_jLabel65MousePressed
 
     private void pvat_TFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pvat_TFKeyReleased
@@ -2834,6 +2844,52 @@ double eachItem_PTprice;
            
         }
     }//GEN-LAST:event_jTextField19KeyTyped
+
+    private void ppname_TFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ppname_TFKeyTyped
+        // TODO add your handling code here:
+        
+         String bpid="";
+        autoId(pproduct_id);
+        jButton2.setEnabled(true);
+        jButton3.setEnabled(false);
+        
+        pbuyprice_TF.setText("");
+        pcat_CB.setSelectedItem("item1");
+        psaleprice_TF.setText("");
+        pbarcode_TF.setText("");
+      try{
+            
+            String src2="Select * from master where ProductName='"+ppname_TF.getText()+"'";
+            
+            boolean check=false;
+            
+            rs=st.executeQuery(src2);
+            
+            while(rs.next()){
+                
+           
+                pproduct_id.setText(rs.getString(1));
+                jButton2.setEnabled(false);
+                jButton3.setEnabled(true);
+                 
+                psaleprice_TF.setText(rs.getString(5));
+                pbuyprice_TF.setText(rs.getString(4));
+                //sqty_TF.setText(rs.getString(6));
+                qty=rs.getString(6);
+                pcat_CB.setSelectedItem(rs.getString(2));
+                pbarcode_TF.setText(rs.getString("Barcode"));
+              
+               
+                
+                
+            }   
+            
+           
+            
+        } catch (SQLException ex) {
+            
+        }
+    }//GEN-LAST:event_ppname_TFKeyTyped
     
     /**
      * @param args the command line arguments
