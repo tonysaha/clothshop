@@ -3,6 +3,7 @@
 import com.lowagie.text.DocumentException;
 import com.mxrck.autocompleter.TextAutoCompleter;
 import com.sun.media.jfxmediaimpl.MetadataParserImpl;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -30,6 +31,8 @@ import javax.swing.text.JTextComponent;
 import net.proteanit.sql.DbUtils;
 import java.text.*;
 import java.awt.print.*;
+import java.io.File;
+import java.io.IOException;
 //import net.proteanit.sql.DbUtils;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -1066,6 +1069,11 @@ public class Mainf extends javax.swing.JFrame {
                 jTextField19ActionPerformed(evt);
             }
         });
+        jTextField19.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField19KeyTyped(evt);
+            }
+        });
 
         Sale_cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button/cancel_deffolt.png"))); // NOI18N
         Sale_cancel.setText("jLabel36");
@@ -1372,6 +1380,12 @@ public class Mainf extends javax.swing.JFrame {
 
         jLabel55.setText("Contact_NO:");
 
+        pscontact_TF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pscontact_TFKeyTyped(evt);
+            }
+        });
+
         jLabel56.setText("Date:");
 
         jLabel51.setText("Approved By");
@@ -1648,19 +1662,20 @@ public class Mainf extends javax.swing.JFrame {
         jPanel22Layout.setHorizontalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel22Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
+                .addGap(102, 102, 102)
                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(442, Short.MAX_VALUE))
+                .addContainerGap(415, Short.MAX_VALUE))
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel22Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton5)
-                .addGap(0, 123, Short.MAX_VALUE))
+                .addGap(0, 119, Short.MAX_VALUE))
         );
 
         jButton4.setText("Search invoice");
@@ -1675,9 +1690,9 @@ public class Mainf extends javax.swing.JFrame {
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(186, 186, 186)
+                .addGap(260, 260, 260)
                 .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
@@ -1689,8 +1704,8 @@ public class Mainf extends javax.swing.JFrame {
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addGap(82, 82, 82)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1836,6 +1851,17 @@ public class Mainf extends javax.swing.JFrame {
             
             m_component();
             barcode bcd=new barcode(bcode, srate);
+          if(Desktop.isDesktopSupported()){
+              try {
+                  File myFile = new File("src\\Barcode\\Java4s_BarCode_128.pdf");
+                  Desktop.getDesktop().open(myFile);
+              } catch (IOException ex) {
+                  System.out.println(ex);
+              }
+          
+          }
+            
+            
         } catch (DocumentException ex) {
             Logger.getLogger(Mainf.class.getName()).log(Level.SEVERE, null, ex);
         } catch (FileNotFoundException ex) {
@@ -2778,6 +2804,32 @@ double eachItem_PTprice;
               System.out.println(e);
         }
     }//GEN-LAST:event_jTable3KeyPressed
+
+    private void pscontact_TFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pscontact_TFKeyTyped
+        // TODO add your handling code here:
+        try {
+            
+            if(pscontact_TF.getText().length()>10){
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "please Enter valid Number");
+            }
+        } catch (Exception e) {
+           
+        }
+    }//GEN-LAST:event_pscontact_TFKeyTyped
+
+    private void jTextField19KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField19KeyTyped
+        // TODO add your handling code here:
+           try {
+            
+            if(jTextField19.getText().length()>10){
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "please Enter valid Number");
+            }
+        } catch (Exception e) {
+           
+        }
+    }//GEN-LAST:event_jTextField19KeyTyped
     
     /**
      * @param args the command line arguments
