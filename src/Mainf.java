@@ -251,6 +251,9 @@ public class Mainf extends javax.swing.JFrame {
         jTable4 = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jDateChooser4 = new com.toedter.calendar.JDateChooser();
+        jButton6 = new javax.swing.JButton();
+        jDateChooser5 = new com.toedter.calendar.JDateChooser();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -316,6 +319,8 @@ public class Mainf extends javax.swing.JFrame {
                 jLabel14MouseReleased(evt);
             }
         });
+
+        jDateChooser1.setDateFormatString("yyyy,MM,dd");
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setText("Quantity");
@@ -618,6 +623,14 @@ public class Mainf extends javax.swing.JFrame {
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField8ActionPerformed(evt);
+            }
+        });
+        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField8KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField8KeyReleased(evt);
             }
         });
 
@@ -1078,6 +1091,8 @@ public class Mainf extends javax.swing.JFrame {
             }
         });
 
+        jDateChooser2.setDateFormatString("yyyy,MM,dd");
+
         Sale_cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button/cancel_deffolt.png"))); // NOI18N
         Sale_cancel.setText("jLabel36");
         Sale_cancel.setPreferredSize(new java.awt.Dimension(85, 40));
@@ -1221,6 +1236,9 @@ public class Mainf extends javax.swing.JFrame {
             }
         });
         ppname_TF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ppname_TFKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 ppname_TFKeyTyped(evt);
             }
@@ -1395,6 +1413,8 @@ public class Mainf extends javax.swing.JFrame {
         });
 
         jLabel56.setText("Date:");
+
+        jDateChooser3.setDateFormatString("yyyy,MM,dd");
 
         jLabel51.setText("Approved By");
 
@@ -1686,38 +1706,61 @@ public class Mainf extends javax.swing.JFrame {
                 .addGap(0, 119, Short.MAX_VALUE))
         );
 
-        jButton4.setText("Search invoice");
+        jButton4.setText("Search By invoice No");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
+        jDateChooser4.setDateFormatString("yyyy,MM.dd");
+
+        jButton6.setText("Search By Date");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jDateChooser5.setDateFormatString("yyyy,MM,dd");
+
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(260, 260, 260)
-                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
                 .addContainerGap(110, Short.MAX_VALUE)
                 .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(103, 103, 103))
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(213, 213, 213)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jDateChooser4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jDateChooser5, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
+                .addGap(30, 30, 30)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jDateChooser5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6)
+                    .addComponent(jDateChooser4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel16, "card5");
@@ -1830,14 +1873,17 @@ public class Mainf extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
+        
            jPanel2.removeAll();
         jPanel2.repaint();
         jPanel2.revalidate();
         
         jPanel2.add(jPanel4);
+        
         jPanel2.repaint();
         jPanel2.revalidate();
         itemauto(jTextField8, "barcode", 1);
+       
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -2143,7 +2189,7 @@ String squantity;
       
       
      // Clear ar Code Ar por hoba.......................
-        
+        jTextField8.setText("");
       spid_TF.setText("");
       spname_TF.setText("");
       ssprice_TF.setText("");
@@ -2186,7 +2232,7 @@ String squantity;
     public void sales_product(){
         try {
             NewJDialog jd=new NewJDialog(this, rootPaneCheckingEnabled);
-            String sql="INSERT INTO sales_product(Sales_Id,Product_id,Quantity,Discount,Total_amount)"+"VALUES"+"('"+salesid_TF.getText()+"','"+spid_TF.getText()+"','"+squantity+"','"+jd.ddiscount+"','"+String.valueOf(eachItem_STprice)+"')";
+            String sql="INSERT INTO sales_product(Sales_Id,Product_id,Quantity,Discount,Total_amount,Date)"+"VALUES"+"('"+salesid_TF.getText()+"','"+spid_TF.getText()+"','"+squantity+"','"+jd.ddiscount+"','"+String.valueOf(eachItem_STprice)+"','"+((JTextField)jDateChooser2.getDateEditor().getUiComponent()).getText()+"')";
             st.executeUpdate(sql);
            qty=String.valueOf(Integer.valueOf(qty)-Integer.valueOf(squantity));
            String sql2="update master set qty='"+qty+"' where ProductId='"+spid_TF.getText()+"'";
@@ -2256,8 +2302,15 @@ String squantity;
     }//GEN-LAST:event_jTextField8ActionPerformed
 
     private void jTextField8FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField8FocusGained
-        itemauto(jTextField8, "barcode", 1);
-        
+       
+        spid_TF.setText("");
+      spname_TF.setText("");
+      ssprice_TF.setText("");
+      sbuyprice_TF.setText("");
+      sqty_TF.setText("");
+      sdis_TF.setText("");
+      jTextField26.setText("");
+      scat_CB.setSelectedIndex(0);
         String bpid="";
         try {
             // TODO add your handling code here:
@@ -2925,6 +2978,107 @@ double eachItem_PTprice;
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jTextField6KeyTyped
+
+    private void jTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyReleased
+        // TODO add your handling code here:
+        
+        // itemauto(jTextField8, "barcode", 1);
+        
+        String bpid="";
+        try {
+            // TODO add your handling code here:
+            String src1="Select ProductId from barcode where Barcode='"+jTextField8.getText()+"'";
+            
+             rs=st.executeQuery(src1);
+             
+            
+            while(rs.next()){
+                
+           
+                bpid=(rs.getString(1));
+                
+            }
+            
+            String src2="Select * from master where ProductId='"+bpid+"'";
+            
+            
+            
+            rs=st.executeQuery(src2);
+            
+            while(rs.next()){
+                
+           
+                spid_TF.setText(rs.getString(1));
+                spname_TF.setText(rs.getString(3));
+                ssprice_TF.setText(rs.getString(5));
+                sbuyprice_TF.setText(rs.getString(4));
+                sqty_TF.setText(rs.getString(6));
+                qty=rs.getString(6);
+                scat_CB.setSelectedItem(rs.getString(2));
+                
+            }   
+        } catch (SQLException ex) {
+            Logger.getLogger(Mainf.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jTextField8KeyReleased
+
+    private void jTextField8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyPressed
+        // TODO add your handling code here:
+         String bpid="";
+        try {
+            // TODO add your handling code here:
+            String src1="Select ProductId from barcode where Barcode='"+jTextField8.getText()+"'";
+            
+             rs=st.executeQuery(src1);
+             
+            
+            while(rs.next()){
+                
+           
+                bpid=(rs.getString(1));
+                
+            }
+            
+            String src2="Select * from master where ProductId='"+bpid+"'";
+            
+            
+            
+            rs=st.executeQuery(src2);
+            
+            while(rs.next()){
+                
+           
+                spid_TF.setText(rs.getString(1));
+                spname_TF.setText(rs.getString(3));
+                ssprice_TF.setText(rs.getString(5));
+                sbuyprice_TF.setText(rs.getString(4));
+                sqty_TF.setText(rs.getString(6));
+                qty=rs.getString(6);
+                scat_CB.setSelectedItem(rs.getString(2));
+                
+            }   
+        } catch (SQLException ex) {
+            Logger.getLogger(Mainf.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_jTextField8KeyPressed
+
+    private void ppname_TFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ppname_TFKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ppname_TFKeyPressed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+         try {
+            String sql="select * from sales_product where Date>='"+((JTextField)jDateChooser4.getDateEditor().getUiComponent()).getText()+"'and Date<='"+((JTextField)jDateChooser5.getDateEditor().getUiComponent()).getText()+"'";
+            rs=st.executeQuery(sql);
+           jTable4.setModel(DbUtils.resultSetToTableModel(rs));
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -3209,10 +3363,13 @@ double eachItem_PTprice;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private com.toedter.calendar.JDateChooser jDateChooser3;
+    private com.toedter.calendar.JDateChooser jDateChooser4;
+    private com.toedter.calendar.JDateChooser jDateChooser5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
