@@ -33,6 +33,15 @@ import java.text.*;
 import java.awt.print.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JFrame;
+import net.sf.jasperreports.engine.JRResultSetDataSource;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
+import net.sf.jasperreports.view.JasperViewer;
 //import net.proteanit.sql.DbUtils;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -86,6 +95,10 @@ public class Mainf extends javax.swing.JFrame {
         autoId(pproduct_id);
         autoPurchaseId(ppurchaseid_TF);
         autoSalesId(salesid_TF);
+        Date date =new Date();
+        jDateChooser2.setDate(date);
+        jDateChooser3.setDate(date);
+        jDateChooser1.setDate(date);
         
     }
 
@@ -263,6 +276,8 @@ public class Mainf extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
 
         jLabel1.setText("jLabel1");
 
@@ -990,6 +1005,11 @@ public class Mainf extends javax.swing.JFrame {
         snetamount_TF.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         snetamount_TF.setForeground(new java.awt.Color(255, 255, 0));
         snetamount_TF.setText("0.0");
+        snetamount_TF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                snetamount_TFActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1678,6 +1698,7 @@ public class Mainf extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(jTable4);
 
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton5.setText("Print");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1689,21 +1710,24 @@ public class Mainf extends javax.swing.JFrame {
         jPanel22.setLayout(jPanel22Layout);
         jPanel22Layout.setHorizontalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel22Layout.createSequentialGroup()
-                .addGap(102, 102, 102)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(415, Short.MAX_VALUE))
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(jScrollPane4)))
+                .addGap(124, 124, 124))
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel22Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5)
-                .addGap(0, 119, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 105, Short.MAX_VALUE))
         );
 
         jButton4.setText("Search By invoice No");
@@ -1729,22 +1753,24 @@ public class Mainf extends javax.swing.JFrame {
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-                .addContainerGap(110, Short.MAX_VALUE)
-                .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(110, 110, 110)
+                .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(103, 103, 103))
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addGap(213, 213, 213)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addComponent(jDateChooser4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                        .addGap(83, 83, 83))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jDateChooser4, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jDateChooser5, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jDateChooser5, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                        .addGap(10, 10, 10)))
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(526, 526, 526))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1756,11 +1782,11 @@ public class Mainf extends javax.swing.JFrame {
                     .addComponent(jDateChooser4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addGap(113, 113, 113))
         );
 
         jPanel2.add(jPanel16, "card5");
@@ -1776,13 +1802,20 @@ public class Mainf extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jMenuBar1.setBackground(new java.awt.Color(255, 204, 204));
+
         jMenu1.setText("File");
         jMenu1.setToolTipText("");
         jMenu1.setFocusable(false);
         jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenu1.setMargin(new java.awt.Insets(5, 5, 5, 5));
 
-        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.setText("Exit");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
@@ -1813,7 +1846,7 @@ public class Mainf extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem3);
 
-        jMenuItem4.setText("Purches");
+        jMenuItem4.setText("Purchase");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -1835,7 +1868,16 @@ public class Mainf extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem5);
 
+        jMenuItem6.setText("Purchase report");
+        jMenu3.add(jMenuItem6);
+
         jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Stock");
+        jMenu4.setAutoscrolls(true);
+        jMenu4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu4.setMargin(new java.awt.Insets(5, 5, 5, 5));
+        jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
@@ -2232,7 +2274,7 @@ String squantity;
     public void sales_product(){
         try {
             NewJDialog jd=new NewJDialog(this, rootPaneCheckingEnabled);
-            String sql="INSERT INTO sales_product(Sales_Id,Product_id,Quantity,Discount,Total_amount,Date)"+"VALUES"+"('"+salesid_TF.getText()+"','"+spid_TF.getText()+"','"+squantity+"','"+jd.ddiscount+"','"+String.valueOf(eachItem_STprice)+"','"+((JTextField)jDateChooser2.getDateEditor().getUiComponent()).getText()+"')";
+            String sql="INSERT INTO sales_product(Sales_Id,Product_id,Product_Name,Quantity,Discount,Total_amount,Date)"+"VALUES"+"('"+salesid_TF.getText()+"','"+spid_TF.getText()+"','"+spname_TF.getText()+"','"+squantity+"','"+jd.ddiscount+"','"+String.valueOf(eachItem_STprice)+"','"+((JTextField)jDateChooser2.getDateEditor().getUiComponent()).getText()+"')";
             st.executeUpdate(sql);
            qty=String.valueOf(Integer.valueOf(qty)-Integer.valueOf(squantity));
            String sql2="update master set qty='"+qty+"' where ProductId='"+spid_TF.getText()+"'";
@@ -2555,13 +2597,44 @@ String squantity;
         if("".equals(sdiscount_TF.getText())){
             sdiscount_TF.setText("0.0");
         }
-        Invoice_Make invoice=new Invoice_Make();
-        invoice.saleprint(jTable2, salesid_TF,subtotal_TF,svat_TF,sdiscount_TF,snetamount_TF, jDateChooser2);
+//     Invoice_Make invoice=new Invoice_Make();
+//      invoice.saleprint(jTable2, salesid_TF,subtotal_TF,svat_TF,sdiscount_TF,snetamount_TF, jDateChooser2);
+
+
+
+ 
+
+
+
+           SalesInvoice();
+
+
+
         sale_submit_clear();
         RemoveTableRow(jTable2);
         autoSalesId(salesid_TF);
     }//GEN-LAST:event_jLabel39MousePressed
-
+    public void SalesInvoice(){
+            try {
+            String sql="SELECT * FROM sales_product WHERE Sales_Id = '"+salesid_TF.getText()+"'";
+             
+            rs= st.executeQuery(sql);
+                System.out.println("ok");
+            Map<String,Object> param=new HashMap<>();
+            param.put("Invoice_No", salesid_TF.getText());
+            param.put("sub_total", subtotal_TF.getText());
+             param.put("vat", svat_TF.getText());
+              param.put("discount", sdiscount_TF.getText());
+               param.put("total_price", snetamount_TF.getText());
+                JasperPrint jasperprint = JasperFillManager.fillReport("src\\Report\\Sales_invoice.jasper", param, new JRResultSetDataSource(rs));
+               JasperViewer.viewReport(jasperprint,false);
+               
+               
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+            
+    }
     private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField18ActionPerformed
@@ -2768,11 +2841,12 @@ double eachItem_PTprice;
     private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField13ActionPerformed
-
+String saleReportSql;
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
        try {
             String sql="select * from sales_product where Sales_Id='"+jTextField13.getText()+"'";
+           saleReportSql=sql;
             rs=st.executeQuery(sql);
            jTable4.setModel(DbUtils.resultSetToTableModel(rs));
             
@@ -2783,13 +2857,29 @@ double eachItem_PTprice;
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-          MessageFormat header=new MessageFormat("Report Print");
-        MessageFormat footer=new MessageFormat("page[0,number,integer]");
-       
-        try {
-            jTable4.print(JTable.PrintMode.NORMAL,header,footer);
+//          MessageFormat header=new MessageFormat("Report Print");
+//        MessageFormat footer=new MessageFormat("page[0,number,integer]");
+//       
+//        try {
+//            jTable4.print(JTable.PrintMode.NORMAL,header,footer);
+//        } catch (Exception e) {
+//        }
+
+ try {
+            String sql=saleReportSql;
+            rs=st.executeQuery(sql);
+           //jTable4.setModel(DbUtils.resultSetToTableModel(rs));
+           JasperPrint jasperprint = JasperFillManager.fillReport("src\\Report\\Sales_Report.jasper", null, new JRResultSetDataSource(rs));
+           JasperViewer.viewReport(jasperprint,false);
+                //JasperPrintManager.printReport(jasperprint, false);
+    
+
+
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
+
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jLabel65MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel65MousePressed
@@ -3072,6 +3162,8 @@ double eachItem_PTprice;
         // TODO add your handling code here:
          try {
             String sql="select * from sales_product where Date>='"+((JTextField)jDateChooser4.getDateEditor().getUiComponent()).getText()+"'and Date<='"+((JTextField)jDateChooser5.getDateEditor().getUiComponent()).getText()+"'";
+            
+            saleReportSql=sql;
             rs=st.executeQuery(sql);
            jTable4.setModel(DbUtils.resultSetToTableModel(rs));
             
@@ -3079,6 +3171,14 @@ double eachItem_PTprice;
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void snetamount_TFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snetamount_TFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_snetamount_TFActionPerformed
     
     /**
      * @param args the command line arguments
@@ -3436,12 +3536,14 @@ double eachItem_PTprice;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
