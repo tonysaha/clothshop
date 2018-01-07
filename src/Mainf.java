@@ -436,9 +436,15 @@ public class Mainf extends javax.swing.JFrame {
         jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel72.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_Buying_32px.png"))); // NOI18N
         jLabel72.setText("Purchase");
+        jLabel72.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel72.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel72.setOpaque(true);
         jLabel72.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel72.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel72MousePressed(evt);
+            }
+        });
 
         jLabel73.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel73.setForeground(new java.awt.Color(54, 33, 89));
@@ -2496,7 +2502,7 @@ String squantity;
     public void sales_product(){
         try {
             NewJDialog jd=new NewJDialog(this, rootPaneCheckingEnabled);
-            String sql="INSERT INTO sales_product(Sales_Id,Product_id,Product_Name,Quantity,Discount,Total_amount,Date)"+"VALUES"+"('"+salesid_TF.getText()+"','"+spid_TF.getText()+"','"+spname_TF.getText()+"','"+squantity+"','"+jd.ddiscount+"','"+String.valueOf(eachItem_STprice)+"','"+((JTextField)jDateChooser2.getDateEditor().getUiComponent()).getText()+"')";
+            String sql="INSERT INTO sales_product(Sales_Id,Product_id,Product_Name,sales_price,Quantity,Discount,Total_amount,Date)"+"VALUES"+"('"+salesid_TF.getText()+"','"+spid_TF.getText()+"','"+spname_TF.getText()+"','"+ssprice_TF.getText()+"','"+squantity+"','"+jd.ddiscount+"','"+String.valueOf(eachItem_STprice)+"','"+((JTextField)jDateChooser2.getDateEditor().getUiComponent()).getText()+"')";
             st.executeUpdate(sql);
            qty=String.valueOf(Integer.valueOf(qty)-Integer.valueOf(squantity));
            String sql2="update master set qty='"+qty+"' where ProductId='"+spid_TF.getText()+"'";
@@ -2541,7 +2547,7 @@ String squantity;
     
     public void purchase_productUpdate(){
         try {
-            String sql="INSERT INTO purchase_product(p_id,Product_id,Quantity,Buy_price,Total_price)"+"VALUES"+"('"+ppurchaseid_TF.getText()+"','"+pproduct_id.getText()+"','"+pquantity_TF.getText()+"','"+pbuyprice_TF.getText()+"','"+String.valueOf(eachItem_PTprice)+"')";
+            String sql="INSERT INTO purchase_product(p_id,Product_id,Product_Name,Quantity,Buy_price,Total_price)"+"VALUES"+"('"+ppurchaseid_TF.getText()+"','"+pproduct_id.getText()+"','"+ppname_TF.getText()+"','"+pquantity_TF.getText()+"','"+pbuyprice_TF.getText()+"','"+String.valueOf(eachItem_PTprice)+"')";
             
              qty=String.valueOf(Integer.valueOf(qty)+Integer.valueOf(pquantity_TF.getText()));
                 String sql2="update master set qty='"+qty+"',Sale_rate='"+psaleprice_TF.getText()+"' where ProductId='"+pproduct_id.getText()+"'";
@@ -2857,6 +2863,28 @@ String squantity;
         }
             
     }
+    
+     public void PurchaseInvoice(){
+            try {
+            String sql="SELECT * FROM purchase_product WHERE p_id = '"+ppurchaseid_TF.getText()+"'";
+             
+            rs= st.executeQuery(sql);
+                System.out.println("ok");
+            Map<String,Object> param=new HashMap<>();
+            param.put("Invoice_No",ppurchaseid_TF.getText());
+            param.put("sub_total", psubtotal_TF.getText());
+             param.put("vat", pvat_TF.getText());
+              param.put("discount", pdiscount_TF.getText());
+               param.put("total_price", ptotal_TF.getText());
+                JasperPrint jasperprint = JasperFillManager.fillReport("src\\Report\\Purchase_invoice.jasper", param, new JRResultSetDataSource(rs));
+               JasperViewer.viewReport(jasperprint,false);
+               
+               
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+            
+    }
     private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField18ActionPerformed
@@ -3121,8 +3149,10 @@ String saleReportSql;
             sdiscount_TF.setText("0.0");
         }
         Invoice_Make invoice=new Invoice_Make();
-        invoice.saleprint(jTable3, ppurchaseid_TF,psubtotal_TF,pvat_TF,pdiscount_TF,ptotal_TF, jDateChooser2);
+        //invoice.saleprint(jTable3, ppurchaseid_TF,psubtotal_TF,pvat_TF,pdiscount_TF,ptotal_TF, jDateChooser2);
         //sale_submit_clear();
+        PurchaseInvoice();
+        
         RemoveTableRow(jTable3);
         autoPurchaseId(ppurchaseid_TF);
         psupplier_TF.setText("");
@@ -3452,6 +3482,18 @@ String saleReportSql;
             log.setVisible(true);
             this.setVisible(false);
     }//GEN-LAST:event_jLabel73MousePressed
+
+    private void jLabel72MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel72MousePressed
+        // TODO add your handling code here:
+          jPanel2.removeAll();
+        jPanel2.repaint();
+        jPanel2.revalidate();
+        
+        jPanel2.add(jPanel5);
+        
+        jPanel2.repaint();
+        jPanel2.revalidate();
+    }//GEN-LAST:event_jLabel72MousePressed
     
     /**
      * @param args the command line arguments
