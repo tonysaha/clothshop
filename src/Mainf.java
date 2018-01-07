@@ -1476,9 +1476,15 @@ public class Mainf extends javax.swing.JFrame {
             }
         });
 
+        ppname_TF.setNextFocusableComponent(pquantity_TF);
         ppname_TF.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 ppname_TFFocusGained(evt);
+            }
+        });
+        ppname_TF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ppname_TFActionPerformed(evt);
             }
         });
         ppname_TF.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1490,7 +1496,7 @@ public class Mainf extends javax.swing.JFrame {
             }
         });
 
-        pquantity_TF.setText("0");
+        pquantity_TF.setName(""); // NOI18N
 
         jLabel47.setBackground(new java.awt.Color(51, 255, 102));
         jLabel47.setText("Product Info");
@@ -1775,13 +1781,16 @@ public class Mainf extends javax.swing.JFrame {
             }
         });
 
-        jLabel61.setText("Discounty");
+        jLabel61.setText("Discount");
 
         jTextField47.setEditable(false);
         jTextField47.setText("0.0");
 
         jLabel62.setText("Total");
 
+        ptotal_TF.setBackground(new java.awt.Color(0, 0, 0));
+        ptotal_TF.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ptotal_TF.setForeground(new java.awt.Color(255, 255, 0));
         ptotal_TF.setText("0.0");
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
@@ -1801,16 +1810,18 @@ public class Mainf extends javax.swing.JFrame {
                 .addComponent(jLabel60)
                 .addGap(18, 18, 18)
                 .addComponent(pvat_TF, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                .addGap(27, 27, 27)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
                         .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(ptotal_TF))
+                        .addComponent(ptotal_TF, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE))
                     .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel61)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pdiscount_TF, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pdiscount_TF, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                        .addGap(3, 3, 3)))
                 .addGap(28, 28, 28))
         );
         jPanel20Layout.setVerticalGroup(
@@ -2953,7 +2964,7 @@ String squantity;
         jButton3.setEnabled(false);
         
         pbuyprice_TF.setText("");
-        pcat_CB.setSelectedItem("item1");
+        pcat_CB.setSelectedItem("Select one");
         psaleprice_TF.setText("");
         pbarcode_TF.setText("");
       try{
@@ -3020,11 +3031,11 @@ double eachItem_PTprice;
                
                ///clear...............
       pbuyprice_TF.setText("");
-        pcat_CB.setSelectedItem("item1");
+        pcat_CB.setSelectedItem("Select one");
         psaleprice_TF.setText("");
         pbarcode_TF.setText("");
         pcat_CB.setSelectedItem("select");
-        pquantity_TF.setText("0");
+        pquantity_TF.setText("");
         ppname_TF.setText("");
               
         } catch (Exception e) {
@@ -3067,11 +3078,11 @@ double eachItem_PTprice;
       //clear.............
       
        pbuyprice_TF.setText("");
-        pcat_CB.setSelectedItem("item1");
+        pcat_CB.setSelectedItem("Select one");
         psaleprice_TF.setText("");
         pbarcode_TF.setText("");
-        pcat_CB.setSelectedItem("select");
-        pquantity_TF.setText("0");
+        //pcat_CB.setSelectedItem("select");
+        pquantity_TF.setText(" ");
         ppname_TF.setText("");      
         } catch (Exception e) {
         }
@@ -3169,12 +3180,12 @@ String saleReportSql;
     }//GEN-LAST:event_jLabel65MousePressed
             public void FillCombo(JComboBox jcb){
                 try {
-                    String sql="select distinct Catagory from master";
+                    String sql="select distinct Catagory as ctg from master";
                     rs=st.executeQuery(sql);
                     while(rs.next()){
                     
-                        String catagory=rs.getString("Catagory");
-                        pcat_CB.addItem(catagory);
+                        String catagory=rs.getString("ctg");
+                        jcb.addItem(catagory);
                     }
                     AutoCompleteDecorator.decorate(jcb);
                 } catch (Exception e) {
@@ -3297,7 +3308,7 @@ String saleReportSql;
         jButton3.setEnabled(false);
         
         pbuyprice_TF.setText("");
-        pcat_CB.setSelectedItem("item1");
+        pcat_CB.setSelectedItem("Select one");
         psaleprice_TF.setText("");
         pbarcode_TF.setText("");
       try{
@@ -3494,6 +3505,10 @@ String saleReportSql;
         jPanel2.repaint();
         jPanel2.revalidate();
     }//GEN-LAST:event_jLabel72MousePressed
+
+    private void ppname_TFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ppname_TFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ppname_TFActionPerformed
     
     /**
      * @param args the command line arguments
