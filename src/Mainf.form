@@ -1253,7 +1253,7 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jTextField26" min="-2" pref="28" max="-2" attributes="0"/>
-                                      <EmptySpace pref="126" max="32767" attributes="0"/>
+                                      <EmptySpace pref="107" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1387,7 +1387,7 @@
                                           <Component id="jLabel38" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                           <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="249" max="32767" attributes="0"/>
+                                      <EmptySpace pref="230" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2603,6 +2603,9 @@
                           <Image iconType="3" name="/button/delete_deffalt.png"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel66MousePressed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

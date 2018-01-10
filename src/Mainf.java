@@ -140,8 +140,7 @@ public void defaultClose(){
                              
                                    if(jTable3.getRowCount()>0){
                              
-                                 String sql="Delete from purchase_product where p_id='"+ppurchaseid_TF.getText()+"'";
-                                 st.executeUpdate(sql);
+                                 canclePurchase();
                                  //jTable3.removeAll();
                                  
                                  //jPanel5.setVisible(false);
@@ -149,8 +148,7 @@ public void defaultClose(){
                                    
                                       if(jTable2.getRowCount()>0){
                              
-                                 String sql="Delete from sales_product where Sales_Id='"+salesid_TF.getText()+"'";
-                                 st.executeUpdate(sql);
+                                 cacleSales();
                                  //jTable3.removeAll();
                                  
                                  //jPanel5.setVisible(false);
@@ -184,6 +182,55 @@ public void panaleShow(JPanel jpanel){
         jPanel2.revalidate();
 
 }
+
+        public void canclePurchase(){
+        
+                               try {
+            
+        
+        String sql="select Product_id,Quantity from purchase_product where p_id='"+ppurchaseid_TF.getText()+"'";
+        List<String>list=new ArrayList<String>();
+        List<String>list2=new ArrayList<String>();
+         rs=st.executeQuery(sql);
+            
+            while(rs.next()){
+                list.add(rs.getString(1));
+                list2.add(rs.getString("Quantity"));
+                
+            }
+             for(int i = 0 ; i < list.size(); i++){
+                 String dbquantity="";
+                 String masterqty="select qty from master where ProductId='"+list.get(i)+"'";
+                rs=st.executeQuery(masterqty);
+                  while(rs.next()){
+                
+           
+                dbquantity=(rs.getString("qty"));
+                     // System.out.println(dbquantity);
+                
+            }
+                 String newqty=String.valueOf((Integer.valueOf(dbquantity))-(Integer.valueOf(list2.get(i))));
+                 //System.out.println(newqty);
+        String sql1="update master set qty='"+newqty+"' where ProductId='"+list.get(i)+"'";
+        st.executeUpdate(sql1);
+    }
+            
+            } catch (Exception e) {
+                //System.out.println(e);
+        }
+        
+        //Delete product when cancle.................................................................................
+        String sql2="delete from purchase_product where p_id='"+ppurchaseid_TF.getText()+"'";
+        try {
+            st.executeUpdate(sql2);
+            //JOptionPane.showMessageDialog(null,"deleted....");
+            RemoveTableRow(jTable3);
+          
+        } catch (Exception ex) {
+           // JOptionPane.showMessageDialog(null,"Not deleted....");
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1092,7 +1139,7 @@ public void panaleShow(JPanel jpanel){
                     .addComponent(scat_CB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
         jPanel13.add(jPanel14, "card2");
@@ -1153,7 +1200,7 @@ public void panaleShow(JPanel jpanel){
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
 
         jPanel13.add(jPanel15, "card3");
@@ -1993,6 +2040,11 @@ public void panaleShow(JPanel jpanel){
         });
 
         jLabel66.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button/delete_deffalt.png"))); // NOI18N
+        jLabel66.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel66MousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
@@ -3424,6 +3476,56 @@ String squantity;
         
     }//GEN-LAST:event_Sale_cancelMousePressed
 
+    public void cacleSales(){
+                try {
+            
+        
+        String sql="select Product_Id,Quantity from sales_product where Sales_Id='"+salesid_TF.getText()+"'";
+        List<String>list=new ArrayList<String>();
+        List<String>list2=new ArrayList<String>();
+         rs=st.executeQuery(sql);
+            
+            while(rs.next()){
+                list.add(rs.getString(1));
+                list2.add(rs.getString("Quantity"));
+                
+            }
+             for(int i = 0 ; i < list.size(); i++){
+                 String dbquantity="";
+                 String masterqty="select qty from master where ProductId='"+list.get(i)+"'";
+                rs=st.executeQuery(masterqty);
+                  while(rs.next()){
+                
+           
+                dbquantity=(rs.getString("qty"));
+                      //System.out.println(dbquantity);
+                
+            }
+                 String newqty=String.valueOf((Integer.valueOf(dbquantity))+(Integer.valueOf(list2.get(i))));
+                 //System.out.println(qty);
+        String sql1="update master set qty='"+newqty+"' where ProductId='"+list.get(i)+"'";
+        st.executeUpdate(sql1);
+    }
+            
+            } catch (Exception e) {
+                //System.out.println(e);
+        }
+        
+        //Delete product when cancle.................................................................................
+        String sql2="delete from sales_product where Sales_Id='"+salesid_TF.getText()+"'";
+        try {
+            st.executeUpdate(sql2);
+            //JOptionPane.showMessageDialog(null,"deleted....");
+            RemoveTableRow(jTable2);
+          
+        } catch (Exception ex) {
+            //JOptionPane.showMessageDialog(null,"Not deleted....");
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        sale_cancel_clear();
+    
+    }
+    
     private void jLabel39MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel39MousePressed
         ImageIcon II = new ImageIcon(getClass().getResource("/button/submit_pressed.png"));
         jLabel11.setIcon(II);
@@ -4351,6 +4453,59 @@ String purchaseReportSql;
            JOptionPane.showMessageDialog(null, e);
        }
     }//GEN-LAST:event_btn_outStockMouseClicked
+
+    private void jLabel66MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel66MousePressed
+        // TODO add your handling code here:
+         try {
+            
+        
+        String sql="select Product_id,Quantity from purchase_product where p_id='"+ppurchaseid_TF.getText()+"'";
+        List<String>list=new ArrayList<String>();
+        List<String>list2=new ArrayList<String>();
+         rs=st.executeQuery(sql);
+            
+            while(rs.next()){
+                list.add(rs.getString(1));
+                list2.add(rs.getString("Quantity"));
+                
+            }
+             for(int i = 0 ; i < list.size(); i++){
+                 String dbquantity="";
+                 String masterqty="select qty from master where ProductId='"+list.get(i)+"'";
+                rs=st.executeQuery(masterqty);
+                  while(rs.next()){
+                
+           
+                dbquantity=(rs.getString("qty"));
+                      System.out.println(dbquantity);
+                
+            }
+                 String newqty=String.valueOf((Integer.valueOf(dbquantity))-(Integer.valueOf(list2.get(i))));
+                 System.out.println(newqty);
+        String sql1="update master set qty='"+newqty+"' where ProductId='"+list.get(i)+"'";
+        st.executeUpdate(sql1);
+    }
+            
+            } catch (Exception e) {
+                System.out.println(e);
+        }
+        
+        //Delete product when cancle.................................................................................
+        String sql2="delete from purchase_product where p_id='"+ppurchaseid_TF.getText()+"'";
+        try {
+            st.executeUpdate(sql2);
+            JOptionPane.showMessageDialog(null,"deleted....");
+            RemoveTableRow(jTable3);
+          
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null,"Not deleted....");
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        //sale_cancel_clear();
+        //table2();
+        
+    
+    }//GEN-LAST:event_jLabel66MousePressed
     
     /**
      * @param args the command line arguments
@@ -4557,7 +4712,7 @@ String purchaseReportSql;
        
            Statement st2;
    
-            String src3="select  MAX(Barcode) AS no from barcode";
+            String src3="select  MAX(cast(Barcode as INT)) AS no from barcode";
             
         try {
             st2=connection.createStatement();

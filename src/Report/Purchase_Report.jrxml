@@ -37,8 +37,8 @@
 				<text><![CDATA[Ujjal  emporium Dhaka Bangladesh]]></text>
 			</staticText>
 			<image scaleImage="FillFrame">
-				<reportElement x="421" y="-8" width="151" height="85"/>
-				<imageExpression><![CDATA["C:\\Users\\DELL\\Desktop\\finalLogo.png"]]></imageExpression>
+				<reportElement x="409" y="-2" width="145" height="85"/>
+				<imageExpression><![CDATA["\\src\\Image\\finalLogo.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
