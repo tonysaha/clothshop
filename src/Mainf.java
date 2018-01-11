@@ -450,6 +450,7 @@ public void panaleShow(JPanel jpanel){
         jMenu1 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -458,6 +459,7 @@ public void panaleShow(JPanel jpanel){
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
 
         jLabel1.setText("jLabel1");
 
@@ -555,6 +557,7 @@ public void panaleShow(JPanel jpanel){
         jLabel69.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel69.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_Report_Card_32px.png"))); // NOI18N
         jLabel69.setText("Report");
+        jLabel69.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel69.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel69.setOpaque(true);
         jLabel69.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -584,6 +587,7 @@ public void panaleShow(JPanel jpanel){
         jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel71.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_Product_32px.png"))); // NOI18N
         jLabel71.setText("Stock");
+        jLabel71.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel71.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel71.setOpaque(true);
         jLabel71.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -613,6 +617,7 @@ public void panaleShow(JPanel jpanel){
         jLabel73.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel73.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_Sign_Out_32px.png"))); // NOI18N
         jLabel73.setText("Log Out");
+        jLabel73.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel73.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel73.setOpaque(true);
         jLabel73.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -1250,7 +1255,7 @@ public void panaleShow(JPanel jpanel){
                     .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
 
         jPanel10.setBackground(new java.awt.Color(255, 153, 204));
@@ -2711,6 +2716,14 @@ public void panaleShow(JPanel jpanel){
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem9.setText("Refresh");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem9);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Master");
@@ -2775,6 +2788,16 @@ public void panaleShow(JPanel jpanel){
         jMenu4.setAutoscrolls(true);
         jMenu4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenu4.setMargin(new java.awt.Insets(5, 5, 5, 5));
+
+        jMenuItem8.setText("View Stock");
+        jMenuItem8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem8);
+
         jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
@@ -3848,7 +3871,9 @@ String purchaseReportSql;
             String sql=saleReportSql;
             rs=st.executeQuery(sql);
            //jTable4.setModel(DbUtils.resultSetToTableModel(rs));
-           JasperPrint jasperprint = JasperFillManager.fillReport(".\\src\\Report\\Sales_Report.jasper", null, new JRResultSetDataSource(rs));
+           Map<String,Object> param=new HashMap<>();
+            param.put("totalamount", Sales_value.getText());
+           JasperPrint jasperprint = JasperFillManager.fillReport(".\\src\\Report\\Sales_Report.jasper", param, new JRResultSetDataSource(rs));
            JasperViewer.viewReport(jasperprint,false);
                 //JasperPrintManager.printReport(jasperprint, false);
     
@@ -4503,10 +4528,84 @@ String purchaseReportSql;
         }
         //sale_cancel_clear();
         //table2();
-        
+        ptotal_TF.setText("0.0");
+        psubtotal_TF.setText("0.0");
     
     }//GEN-LAST:event_jLabel66MousePressed
-    
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        panaleShow(jPanel31);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+        if(JOptionPane.showConfirmDialog(null, "Are you sure close it? "
+                             + "lost Data","Warning",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+        try {
+              if(jTable3.getRowCount()>0){
+                  
+                             
+                                 canclePurchase();
+                                 //jTable3.removeAll();
+                                 
+                                 //jPanel5.setVisible(false);
+                             }   
+                                   
+                                      if(jTable2.getRowCount()>0){
+                             
+                                 cacleSales();
+                                 //jTable3.removeAll();
+                                 
+                                 //jPanel5.setVisible(false);
+                             }
+                                      Refresh();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        }
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    public void Refresh(){
+    this.setVisible(false);
+        this.setVisible(true);
+        sale_submit_clear();
+        sale_cancel_clear();
+        mainf_clear();
+        
+        RemoveTableRow(jTable2);
+        RemoveTableRow(jTable3);
+
+        Sales_value.setText("0.0");
+        RemoveTableRow(jTable4);        
+        
+       purchasevalue_TF.setText("0.0");
+       RemoveTableRow(PurchaseReport_TB);
+       
+       psubtotal_TF.setText("0.0");
+       ptotal_TF.setText("0.0");
+        
+      jTextField8.setText("");
+      spid_TF.setText("");
+      spname_TF.setText("");
+      ssprice_TF.setText("");
+      sbuyprice_TF.setText("");
+      sqty_TF.setText("");
+      sdis_TF.setText("");
+      jTextField26.setText("");
+      scat_CB.setSelectedIndex(0);
+        
+        psupplier_TF.setText("");
+        pscontact_TF.setText("");
+        jTextField38.setText("");
+        jTextField37.setText("");
+        
+        pbuyprice_TF.setText("");
+        pcat_CB.setSelectedItem("Select one");
+        psaleprice_TF.setText("");
+        pbarcode_TF.setText("");
+        pcat_CB.setSelectedItem("select");
+        pquantity_TF.setText("");
+        ppname_TF.setText("");}
     /**
      * @param args the command line arguments
      */
@@ -4947,6 +5046,8 @@ String purchaseReportSql;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
