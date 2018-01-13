@@ -3873,7 +3873,8 @@ String purchaseReportSql;
            //jTable4.setModel(DbUtils.resultSetToTableModel(rs));
            Map<String,Object> param=new HashMap<>();
             param.put("totalamount", Sales_value.getText());
-           JasperPrint jasperprint = JasperFillManager.fillReport(".\\src\\Report\\Sales_Report.jasper", param, new JRResultSetDataSource(rs));
+           
+           JasperPrint jasperprint = JasperFillManager.fillReport(pathDetect("Sales_Report.jasper").toString()+"\\src\\Report\\Sales_Report.jasper", param, new JRResultSetDataSource(rs));
            JasperViewer.viewReport(jasperprint,false);
                 //JasperPrintManager.printReport(jasperprint, false);
     
@@ -4300,6 +4301,17 @@ String purchaseReportSql;
         jPanel2.revalidate();    } 
     }//GEN-LAST:event_jLabel69MouseClicked
 
+    public String pathDetect(String fileName){
+        File myFile = new File("Purchase_Report.jasper");
+            
+            String path=myFile.getAbsolutePath();
+           
+    File file = new File(path);
+
+    String filePath = file.getAbsolutePath().substring(0,path.lastIndexOf(File.separator));
+    return filePath;
+    
+    }
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         
@@ -4310,8 +4322,25 @@ String purchaseReportSql;
            
             Map<String,Object> param=new HashMap<>();
             param.put("total", purchasevalue_TF.getText());
-           JasperPrint jasperprint = JasperFillManager.fillReport(".\\src\\Report\\Purchase_Report.jasper", param, new JRResultSetDataSource(rs));
+            
+             //System.out.println(pathDetect("Purchase_Report.jasper").toString()); 
+//            File myFile = new File("Purchase_Report.jasper");
+//            
+//            String path=myFile.getAbsolutePath();
+//           
+//    File file = new File(path);
+//
+//    String filePath = file.getAbsolutePath().substring(0,path.lastIndexOf(File.separator));
+//    System.out.println(filePath);
+    
+    
+    
+    
+    
+            //System.out.println(filePath+"\\src\\Report\\Purchase_Report.jasper");
+           JasperPrint jasperprint = JasperFillManager.fillReport(pathDetect("Purchase_Report.jasper").toString()+"\\src\\Report\\Purchase_Report.jasper", param, new JRResultSetDataSource(rs));
            JasperViewer.viewReport(jasperprint,false);
+           
                 //JasperPrintManager.printReport(jasperprint, false);
     
 
