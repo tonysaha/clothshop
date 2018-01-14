@@ -43,11 +43,14 @@ import java.util.Map;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import net.sf.jasperreports.engine.JREmptyDataSource;
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRResultSetDataSource;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.view.JasperViewer;
+import net.sf.jasperreports.components.barcode4j.*;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 //import net.proteanit.sql.DbUtils;
 /*
@@ -103,6 +106,7 @@ public class Mainf extends javax.swing.JFrame {
         table1();
        // tableStock();
         itemauto(jTextField6,"master",1);
+        itemauto(jTextField6, "master",3);
         itemauto(jTextField8, "barcode", 1);
         //itemauto(ppname_TF, "master", 3);
          itemauto(ppname_TF, "master", 3);
@@ -850,6 +854,9 @@ public void panaleShow(JPanel jpanel){
             }
         });
         jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField6KeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField6KeyReleased(evt);
             }
@@ -2869,23 +2876,36 @@ public void panaleShow(JPanel jpanel){
             jLabel14.setIcon(II);
             
             m_component();
-            barcode bcd=new barcode(bcode, srate);
-          if(Desktop.isDesktopSupported()){
-              try {
-                  File myFile = new File("src\\Barcode\\Java4s_BarCode_128.pdf");
-                  Desktop.getDesktop().open(myFile);
-              } catch (IOException ex) {
-                  JOptionPane.showMessageDialog(null, ex);
-              }
-          
-          }
             
+
+           
+            barcode bcd=new barcode(jTextField2.getText());
             
-        } catch (DocumentException ex) {
-            Logger.getLogger(Mainf.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Mainf.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Map<String,Object> param=new HashMap<>();
+            param.put("price", jTextField5.getText()+" TK");
+        
+     JasperPrint jasperprint = JasperFillManager.fillReport(pathDetect("Barcode.jasper").toString()+"\\src\\Barcode\\Barcode_1.jasper", param, new JREmptyDataSource());
+           JasperViewer.viewReport(jasperprint,false);
+           
+            
+//            barcode bcd=new barcode(bcode, srate);
+//          if(Desktop.isDesktopSupported()){
+//              try {
+//                  File myFile = new File("src\\Barcode\\Java4s_BarCode_128.pdf");
+//                  Desktop.getDesktop().open(myFile);
+//              } catch (IOException ex) {
+//                  JOptionPane.showMessageDialog(null, ex);
+//              }
+//          
+//          }
+//            
+//            
+       } catch (Exception ex) {
+            System.out.println(ex);
+       } 
+//      catch (FileNotFoundException ex) {
+//            Logger.getLogger(Mainf.class.getName()).log(Level.SEVERE, null, ex);
+//        }
       
     }//GEN-LAST:event_jLabel14MousePressed
 
@@ -3050,15 +3070,8 @@ public void panaleShow(JPanel jpanel){
 
     private void jTextField6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyReleased
         // TODO add your handling code here:
-              String Sql="Select *from master where ProductId = '"+jTextField6.getText()+"'";
-       try {
-           rs=st.executeQuery(Sql);
-           jTable1.setModel(DbUtils.resultSetToTableModel(rs));
-           
-           
-       } catch (Exception e) {
-           JOptionPane.showMessageDialog(null, "No Product In List");
-       }
+              
+   
     }//GEN-LAST:event_jTextField6KeyReleased
 
     private void jTextField6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField6MousePressed
@@ -3073,19 +3086,41 @@ public void panaleShow(JPanel jpanel){
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
-                String Sql="Select *from master where ProductId = '"+jTextField6.getText()+"'";
+                
        try {
+           String Sql="Select *from master where ProductId = '"+jTextField6.getText()+"' or ProductName='"+jTextField6.getText()+"'";
            rs=st.executeQuery(Sql);
+           
+          
            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
            
            
        } catch (Exception e) {
+          
            JOptionPane.showMessageDialog(null, "No Product In List");
        }
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jTextField6FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusGained
-        // TODO add your handling code here:
+
+          try {
+              if(jTextField6.getText()==""){
+                  table1();
+              }
+           String Sql="Select *from master where ProductId = '"+jTextField6.getText()+"' or ProductName='"+jTextField6.getText()+"'";
+           rs=st.executeQuery(Sql);
+           
+          
+           jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+           
+           
+       } catch (Exception e) {
+          
+           JOptionPane.showMessageDialog(null, "No Product In List");
+       }
+        
+        
+// TODO add your handling code here:
         
 //                String Sql="Select *from master where ProductId = '"+jTextField6.getText()+"'";
 //       try {
@@ -4091,6 +4126,17 @@ String purchaseReportSql;
 
     private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
         // TODO add your handling code here:
+              try {
+           String Sql="Select *from master where ProductId = '"+jTextField6.getText()+"' or ProductName='"+jTextField6.getText()+"'";
+           rs=st.executeQuery(Sql);
+          
+           jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+          
+           
+           
+       } catch (Exception e) {
+           JOptionPane.showMessageDialog(null, "No Product In List");
+       }
         
     }//GEN-LAST:event_jTextField6KeyTyped
 
@@ -4594,6 +4640,11 @@ String purchaseReportSql;
         }
         }
     }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jTextField6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyPressed
+        // TODO add your handling code here:
+      
+    }//GEN-LAST:event_jTextField6KeyPressed
     public void Refresh(){
     this.setVisible(false);
         this.setVisible(true);
