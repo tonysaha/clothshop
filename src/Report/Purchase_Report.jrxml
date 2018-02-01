@@ -34,7 +34,7 @@
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Ujjal  emporium Dhaka Bangladesh]]></text>
+				<text><![CDATA[Ujjal  Emporium Dhaka Bangladesh]]></text>
 			</staticText>
 			<image scaleImage="FillFrame">
 				<reportElement x="409" y="-2" width="145" height="85"/>

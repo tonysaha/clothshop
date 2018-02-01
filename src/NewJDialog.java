@@ -1,4 +1,5 @@
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /*
@@ -63,12 +64,20 @@ public class NewJDialog extends javax.swing.JDialog {
             }
         });
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField1KeyReleased(evt);
             }
         });
 
         jTextField2.setText("0.0");
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField2KeyPressed(evt);
+            }
+        });
 
         jButton1.setText("OK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -173,6 +182,28 @@ public class NewJDialog extends javax.swing.JDialog {
         
        
     }//GEN-LAST:event_jTextField1KeyReleased
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+                dquantity=jTextField1.getText();
+        ddiscount=jTextField2.getText();
+        dispose();
+        
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
+        // TODO add your handling code here:
+        
+            if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+                dquantity=jTextField1.getText();
+        ddiscount=jTextField2.getText();
+        dispose();
+        
+        }
+    
+    }//GEN-LAST:event_jTextField2KeyPressed
 
     /**
      * @param args the command line arguments

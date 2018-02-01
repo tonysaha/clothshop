@@ -1,4 +1,5 @@
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import sun.applet.Main;
 
@@ -85,6 +86,11 @@ public class Login extends javax.swing.JFrame {
                 jPasswordField1ActionPerformed(evt);
             }
         });
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
 
         jTextField1.setAutoscrolls(false);
 
@@ -134,9 +140,9 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(80, 37, 152));
         jPanel1.setToolTipText("");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Bootics Mnagement System");
+        jLabel3.setText("Bootics Management System");
         jLabel3.setToolTipText("");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
@@ -153,18 +159,19 @@ public class Login extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel6))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(143, 143, 143)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,6 +215,31 @@ public class Login extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+             try {
+            
+        
+        
+        String username=jTextField1.getText();
+        String password=jPasswordField1.getText();
+        if(username.contains("tony") && password.contains("1")){
+            
+            Mainf main=new Mainf();
+            jTextField1.setText(null);
+            jPasswordField1.setText(null);
+            main.setVisible(true);
+            this.setVisible(false);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "User Naame and Password not Match");}
+        } catch (Exception e) {
+        }
+        
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
 
     /**
      * @param args the command line arguments
