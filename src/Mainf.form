@@ -3740,8 +3740,8 @@
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel83" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel85" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel85" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel83" min="-2" pref="74" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
@@ -3797,7 +3797,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel83">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Times New Roman" size="12" style="1"/>
+                          <Font name="Tahoma" size="14" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Cost:"/>
                       </Properties>
@@ -3806,6 +3806,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel85">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="14" style="1"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Cost Details:"/>
                       </Properties>
                     </Component>
@@ -3900,9 +3903,9 @@
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="3" rowCount="0">
-                                <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                                <Column editable="true" title="Cost Type" type="java.lang.Object"/>
+                                <Column editable="true" title="Cost" type="java.lang.Object"/>
+                                <Column editable="true" title="Cost Details" type="java.lang.Object"/>
                               </Table>
                             </Property>
                           </Properties>

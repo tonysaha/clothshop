@@ -9,6 +9,7 @@ import com.lowagie.text.pdf.Barcode;
 import com.lowagie.text.pdf.Barcode128;
 import com.lowagie.text.pdf.PdfWriter;
 import com.onbarcode.barcode.Code128;
+
 import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

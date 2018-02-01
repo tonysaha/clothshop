@@ -1300,7 +1300,7 @@ public void panaleShow(JPanel jpanel){
                     .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
 
         jPanel10.setBackground(new java.awt.Color(255, 153, 204));
@@ -2788,9 +2788,10 @@ public void panaleShow(JPanel jpanel){
             }
         });
 
-        jLabel83.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel83.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel83.setText("Cost:");
 
+        jLabel85.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel85.setText("Cost Details:");
 
         jButton10.setText("ADD");
@@ -2818,8 +2819,8 @@ public void panaleShow(JPanel jpanel){
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel35Layout.createSequentialGroup()
                         .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel83)
-                            .addComponent(jLabel85))
+                            .addComponent(jLabel85)
+                            .addComponent(jLabel83, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -2850,7 +2851,7 @@ public void panaleShow(JPanel jpanel){
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3"
+                "Cost Type", "Cost", "Cost Details"
             }
         ));
         jScrollPane7.setViewportView(jTable6);
@@ -3951,7 +3952,7 @@ String squantity;
              param.put("vat", svat_TF.getText());
               param.put("discount", sdiscount_TF.getText());
                param.put("total_price", snetamount_TF.getText());
-                JasperPrint jasperprint = JasperFillManager.fillReport("src\\Report\\Sales_invoice.jasper", param, new JRResultSetDataSource(rs));
+                JasperPrint jasperprint = JasperFillManager.fillReport("src\\Report\\Sales_invoice_Small.jasper", param, new JRResultSetDataSource(rs));
                JasperViewer.viewReport(jasperprint,false);
                
                
@@ -5072,7 +5073,14 @@ String purchaseReportSql;
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-List<String> list=new ArrayList<String>();
+
+        if(jComboBox3.getSelectedItem()=="Select One" || Dcost_TF.getText().trim().isEmpty()){
+            
+              
+        
+        }
+        else{
+                  List<String> list=new ArrayList<String>();
             DefaultTableModel model=(DefaultTableModel) jTable6.getModel();
       
        list.add(jComboBox3.getSelectedItem().toString());
@@ -5090,6 +5098,9 @@ List<String> list=new ArrayList<String>();
             JOptionPane.showMessageDialog(null, e);
             System.out.println(e);
         }
+        }
+        
+        
         dclear();
     }//GEN-LAST:event_jButton10ActionPerformed
 
