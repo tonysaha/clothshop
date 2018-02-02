@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
@@ -87,7 +88,7 @@ public class Mainf extends javax.swing.JFrame {
         
             initComponents();
             defaultClose();
-    
+            Icon();
            
             
           try {
@@ -175,6 +176,10 @@ public void defaultClose(){
                 
                 
 });
+}
+
+public void Icon(){
+    setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Icon/finalLogo.png")));
 }
 
 public void panaleShow(JPanel jpanel){
@@ -3005,6 +3010,7 @@ public void panaleShow(JPanel jpanel){
         jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenu1.setMargin(new java.awt.Insets(5, 5, 5, 5));
 
+        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/^3D3327A8CA9D08E4A1DB2237E4A432B0FFEC93ECAAB674451B^pimgpsh_mobile_save_distr.jpg"))); // NOI18N
         jMenuItem9.setText("Refresh");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3013,6 +3019,7 @@ public void panaleShow(JPanel jpanel){
         });
         jMenu1.add(jMenuItem9);
 
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/^08B8CBFAAACFAD8D5D0E17AE587A8ED3922407CF1BE30FD28F^pimgpsh_mobile_save_distr.jpg"))); // NOI18N
         jMenuItem7.setText("Home");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3021,6 +3028,7 @@ public void panaleShow(JPanel jpanel){
         });
         jMenu1.add(jMenuItem7);
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/^ECC384B1DACFB3C315288936CD74CA366216CB02A5C892EADC^pimgpsh_mobile_save_distr.jpg"))); // NOI18N
         jMenuItem1.setText("Exit");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3041,6 +3049,7 @@ public void panaleShow(JPanel jpanel){
             }
         });
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_Settings_32px_1.png"))); // NOI18N
         jMenuItem2.setText("Item");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3049,6 +3058,7 @@ public void panaleShow(JPanel jpanel){
         });
         jMenu2.add(jMenuItem2);
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_Sale_32px.png"))); // NOI18N
         jMenuItem3.setText("Sales");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3057,6 +3067,7 @@ public void panaleShow(JPanel jpanel){
         });
         jMenu2.add(jMenuItem3);
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_Buying_32px.png"))); // NOI18N
         jMenuItem4.setText("Purchase");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3071,6 +3082,7 @@ public void panaleShow(JPanel jpanel){
         jMenu3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenu3.setMargin(new java.awt.Insets(5, 5, 5, 5));
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_Report_Card_32px.png"))); // NOI18N
         jMenuItem5.setText("Sales Report");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3079,6 +3091,7 @@ public void panaleShow(JPanel jpanel){
         });
         jMenu3.add(jMenuItem5);
 
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_Report_Card_32px.png"))); // NOI18N
         jMenuItem6.setText("Purchase report");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3094,6 +3107,7 @@ public void panaleShow(JPanel jpanel){
         jMenu4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenu4.setMargin(new java.awt.Insets(5, 5, 5, 5));
 
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_Product_32px.png"))); // NOI18N
         jMenuItem8.setText("View Stock");
         jMenuItem8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
@@ -5177,6 +5191,9 @@ String purchaseReportSql;
         sale_cancel_clear();
         mainf_clear();
         
+        daily_cash_TF.setText("0.0");
+        Today_othercost_TF.setText("0.0");
+       
         RemoveTableRow(jTable2);
         RemoveTableRow(jTable3);
 
