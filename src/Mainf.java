@@ -5406,8 +5406,15 @@ String purchaseReportSql;
             
                  //System.out.println(rs.getString(1));
                  
-               int idd=Integer.parseInt(rs.getString(1));
-               int lid=idd+1;
+              
+               int lid;
+                 try {
+                      int idd=Integer.parseInt(rs.getString(1));
+                     lid=idd+1;
+                 } catch (Exception e) {
+                     lid=0;
+                 }
+               
                  //System.out.println(lid);
                  textfield.setText("0"+String.valueOf(lid));
            
@@ -5417,6 +5424,8 @@ String purchaseReportSql;
             
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
+           
+            
         }
  
    }
@@ -5436,8 +5445,13 @@ String purchaseReportSql;
             
                  //System.out.println(rs.getString(1));
                  
-               int idd=Integer.parseInt(rs.getString(1));
-               int lid=idd+1;
+                int lid;
+                 try {
+                      int idd=Integer.parseInt(rs.getString(1));
+                     lid=idd+1;
+                 } catch (Exception e) {
+                     lid=0310;
+                 }
                  //System.out.println(lid);
                  textfield.setText("0"+String.valueOf(lid));
            
@@ -5464,8 +5478,13 @@ String purchaseReportSql;
             
                  //System.out.println(rs.getString(1));
                  
-               int idd=Integer.parseInt(rs.getString(1));
-               int lid=idd+1;
+                int lid;
+                 try {
+                      int idd=Integer.parseInt(rs.getString(1));
+                     lid=idd+1;
+                 } catch (Exception e) {
+                     lid=0;
+                 }
                  //System.out.println(lid);
                  textfield.setText("0"+String.valueOf(lid));
            
@@ -5494,8 +5513,13 @@ String purchaseReportSql;
             
                  //System.out.println(rs.getString(1));
                  
-               int idd=Integer.parseInt(rs.getString(1));
-               int lid=idd+1;
+                int lid;
+                 try {
+                      int idd=Integer.parseInt(rs.getString(1));
+                     lid=idd+1;
+                 } catch (Exception e) {
+                     lid=0;
+                 }
                  //System.out.println(lid);
                  textfield.setText("0"+String.valueOf(lid));
            
